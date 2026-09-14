@@ -1,10 +1,10 @@
 {
   "format": "pakadbandi-project",
   "schemaVersion": 1,
-  "exportedAt": "2026-09-14T16:51:14.478Z",
+  "exportedAt": "2026-09-14T17:23:37.706Z",
   "project": {
     "id": "the-way-home-demo",
-    "title": "The way home",
+    "title": "Yachacha Gachacha",
     "timezone": "Asia/Kolkata",
     "startDate": "2026-09-19",
     "endDate": "2026-09-27",
@@ -211,62 +211,6 @@
         "estimatedMinutes": 30,
         "lighting": "daylight",
         "color": "yellow"
-      },
-      {
-        "id": "shot-001",
-        "code": "SH 001",
-        "title": "A town waking up",
-        "sceneLabel": "SCENE 01",
-        "description": "Establishing wide of the lane in the early morning.",
-        "locationLabel": "Old town",
-        "requiredPersonIds": [
-          "neel"
-        ],
-        "estimatedMinutes": 75,
-        "lighting": "daylight",
-        "color": "sage"
-      },
-      {
-        "id": "shot-005",
-        "code": "SH 005",
-        "title": "Home, again",
-        "sceneLabel": "SCENE 02",
-        "description": "Ravi arrives at the front gate with his bag.",
-        "locationLabel": "Courtyard",
-        "requiredPersonIds": [
-          "ravi"
-        ],
-        "estimatedMinutes": 60,
-        "lighting": "anytime",
-        "color": "yellow"
-      },
-      {
-        "id": "shot-008",
-        "code": "SH 008",
-        "title": "Tea for two",
-        "sceneLabel": "SCENE 03",
-        "description": "Asha pours tea. Close coverage of hands and cups.",
-        "locationLabel": "Kitchen",
-        "requiredPersonIds": [
-          "asha"
-        ],
-        "estimatedMinutes": 45,
-        "lighting": "anytime",
-        "color": "lavender"
-      },
-      {
-        "id": "shot-025",
-        "code": "SH 025",
-        "title": "Lights out",
-        "sceneLabel": "SCENE 09",
-        "description": "The house falls quiet. End on the empty hallway.",
-        "locationLabel": "Hallway",
-        "requiredPersonIds": [
-          "neel"
-        ],
-        "estimatedMinutes": 60,
-        "lighting": "nighttime",
-        "color": "sage"
       },
       {
         "id": "e95f3b29-7ca2-439c-a873-588555392cd3",
@@ -1133,30 +1077,6 @@
       }
     ],
     "assignments": [
-      {
-        "shotId": "shot-001",
-        "date": "2026-09-20",
-        "sessionId": "morning",
-        "order": 0
-      },
-      {
-        "shotId": "shot-005",
-        "date": "2026-09-21",
-        "sessionId": "afternoon",
-        "order": 0
-      },
-      {
-        "shotId": "shot-008",
-        "date": "2026-09-22",
-        "sessionId": "evening",
-        "order": 0
-      },
-      {
-        "shotId": "shot-025",
-        "date": "2026-09-23",
-        "sessionId": "night",
-        "order": 0
-      },
       {
         "shotId": "shot-012",
         "date": "2026-09-19",
