@@ -1,0 +1,1174 @@
+{
+  "format": "pakadbandi-project",
+  "schemaVersion": 1,
+  "exportedAt": "2026-09-14T16:51:14.478Z",
+  "project": {
+    "id": "the-way-home-demo",
+    "title": "The way home",
+    "timezone": "Asia/Kolkata",
+    "startDate": "2026-09-19",
+    "endDate": "2026-09-27",
+    "sessions": [
+      {
+        "id": "morning",
+        "label": "Morning",
+        "startMinute": 360,
+        "endMinute": 660
+      },
+      {
+        "id": "afternoon",
+        "label": "Afternoon",
+        "startMinute": 840,
+        "endMinute": 960
+      },
+      {
+        "id": "evening",
+        "label": "Evening",
+        "startMinute": 1020,
+        "endMinute": 1200
+      },
+      {
+        "id": "night",
+        "label": "Night",
+        "startMinute": 1200,
+        "endMinute": 1440
+      }
+    ],
+    "daylightDefault": {
+      "startMinute": 360,
+      "endMinute": 1080
+    },
+    "daylightByDate": [],
+    "coreCrewPersonIds": [
+      "dev",
+      "neel"
+    ],
+    "people": [
+      {
+        "id": "ravi",
+        "name": "Chandrakanth",
+        "categories": [
+          "cast"
+        ],
+        "role": "Vamshi",
+        "defaultAvailability": "available"
+      },
+      {
+        "id": "asha",
+        "name": "Sreekanth",
+        "categories": [
+          "cast"
+        ],
+        "role": "Yashwanth",
+        "defaultAvailability": "available"
+      },
+      {
+        "id": "dev",
+        "name": "Surya",
+        "categories": [
+          "crew"
+        ],
+        "role": "Director",
+        "defaultAvailability": "available"
+      },
+      {
+        "id": "neel",
+        "name": "Sandeep",
+        "categories": [
+          "crew"
+        ],
+        "role": "Cinematographer",
+        "defaultAvailability": "available"
+      },
+      {
+        "id": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "name": "Krishnakanth",
+        "categories": [
+          "cast"
+        ],
+        "role": "Nani",
+        "defaultAvailability": "unconfirmed"
+      },
+      {
+        "id": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "name": "Manideep",
+        "categories": [
+          "cast"
+        ],
+        "role": "Karthik",
+        "defaultAvailability": "unconfirmed"
+      },
+      {
+        "id": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "name": "Bhaskar",
+        "categories": [
+          "cast"
+        ],
+        "role": "Daniel",
+        "defaultAvailability": "unconfirmed"
+      },
+      {
+        "id": "0985969c-58b8-4a7b-bfd4-d3d2961ab4ef",
+        "name": "Rajiiv",
+        "categories": [
+          "cast"
+        ],
+        "role": "Kulkarni",
+        "defaultAvailability": "unconfirmed"
+      },
+      {
+        "id": "2c505c97-1eaa-4a2d-b081-14176627beb1",
+        "name": "Rajesh",
+        "categories": [
+          "cast"
+        ],
+        "role": "Venkat reddy",
+        "defaultAvailability": "unconfirmed"
+      },
+      {
+        "id": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "name": "Jayaprada",
+        "categories": [
+          "cast"
+        ],
+        "role": "Amma",
+        "defaultAvailability": "unconfirmed"
+      },
+      {
+        "id": "c764e36d-1753-46fd-9a6a-01c6df0d4e36",
+        "name": "Vijay Kumar",
+        "categories": [
+          "cast"
+        ],
+        "role": "Naanna",
+        "defaultAvailability": "unconfirmed"
+      },
+      {
+        "id": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "name": "Subramanyam",
+        "categories": [
+          "cast"
+        ],
+        "role": "Subramanyam",
+        "defaultAvailability": "unconfirmed"
+      }
+    ],
+    "shots": [
+      {
+        "id": "shot-012",
+        "code": "SH 01",
+        "title": "Home Base — Vamshi and his mother",
+        "sceneLabel": "SCENE 01",
+        "description": "Home Base — Vamshi and his mother",
+        "locationLabel": "Kitchen",
+        "requiredPersonIds": [
+          "ravi",
+          "807127e4-f640-4c49-bbe7-3966084123a3"
+        ],
+        "estimatedMinutes": 90,
+        "lighting": "daylight",
+        "color": "yellow"
+      },
+      {
+        "id": "shot-014",
+        "code": "SH 02",
+        "title": "The Plan — Vamshi rallies the boys by phone",
+        "sceneLabel": "SCENE 02",
+        "description": "The Plan — Vamshi rallies the boys by phone",
+        "locationLabel": "Bedroom",
+        "requiredPersonIds": [
+          "ravi"
+        ],
+        "estimatedMinutes": 45,
+        "lighting": "anytime",
+        "color": "sage"
+      },
+      {
+        "id": "shot-018",
+        "code": "SH 03",
+        "title": "Danny Makes an Entrance",
+        "sceneLabel": "SCENE 03",
+        "description": "Danny Makes an Entrance",
+        "locationLabel": "Stairs and Road",
+        "requiredPersonIds": [
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "daylight",
+        "color": "lavender"
+      },
+      {
+        "id": "shot-021",
+        "code": "SH 04",
+        "title": "Home Base — Father",
+        "sceneLabel": "SCENE 08",
+        "description": " Vamshi and his father",
+        "locationLabel": "Living room",
+        "requiredPersonIds": [
+          "ravi",
+          "c764e36d-1753-46fd-9a6a-01c6df0d4e36"
+        ],
+        "estimatedMinutes": 30,
+        "lighting": "daylight",
+        "color": "yellow"
+      },
+      {
+        "id": "shot-001",
+        "code": "SH 001",
+        "title": "A town waking up",
+        "sceneLabel": "SCENE 01",
+        "description": "Establishing wide of the lane in the early morning.",
+        "locationLabel": "Old town",
+        "requiredPersonIds": [
+          "neel"
+        ],
+        "estimatedMinutes": 75,
+        "lighting": "daylight",
+        "color": "sage"
+      },
+      {
+        "id": "shot-005",
+        "code": "SH 005",
+        "title": "Home, again",
+        "sceneLabel": "SCENE 02",
+        "description": "Ravi arrives at the front gate with his bag.",
+        "locationLabel": "Courtyard",
+        "requiredPersonIds": [
+          "ravi"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "shot-008",
+        "code": "SH 008",
+        "title": "Tea for two",
+        "sceneLabel": "SCENE 03",
+        "description": "Asha pours tea. Close coverage of hands and cups.",
+        "locationLabel": "Kitchen",
+        "requiredPersonIds": [
+          "asha"
+        ],
+        "estimatedMinutes": 45,
+        "lighting": "anytime",
+        "color": "lavender"
+      },
+      {
+        "id": "shot-025",
+        "code": "SH 025",
+        "title": "Lights out",
+        "sceneLabel": "SCENE 09",
+        "description": "The house falls quiet. End on the empty hallway.",
+        "locationLabel": "Hallway",
+        "requiredPersonIds": [
+          "neel"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "nighttime",
+        "color": "sage"
+      },
+      {
+        "id": "e95f3b29-7ca2-439c-a873-588555392cd3",
+        "code": "SH 05",
+        "title": "Parents Leave, Danny Arrives",
+        "sceneLabel": "Scene 5",
+        "description": "Parents Leave, Danny Arrives",
+        "locationLabel": "Outside - ",
+        "requiredPersonIds": [
+          "ravi",
+          "807127e4-f640-4c49-bbe7-3966084123a3",
+          "dev",
+          "neel",
+          "c764e36d-1753-46fd-9a6a-01c6df0d4e36",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "689ee47a-d94d-45f5-8c1d-156a169745ab",
+        "code": "SH 06",
+        "title": "Get the booze",
+        "sceneLabel": "SCENE 12",
+        "description": "Get the booze — Yashwanth & Nani score the booze",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "asha",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "daylight",
+        "color": "sage"
+      },
+      {
+        "id": "875ac120-0949-4f7c-843f-c4fb74094c0a",
+        "code": "SH 07",
+        "title": "Who's the boss",
+        "sceneLabel": "SCENE 1",
+        "description": "Venkat Reddy, Pasha & Zubeda",
+        "locationLabel": "",
+        "requiredPersonIds": [],
+        "estimatedMinutes": 60,
+        "lighting": "daylight",
+        "color": "yellow"
+      },
+      {
+        "id": "dc9919b8-f66f-4d22-b7c4-2ae5b1d2815a",
+        "code": "SH 08",
+        "title": "Get the weed",
+        "sceneLabel": "",
+        "description": "Yash and Nani picks up the weed from Venkat reddy",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "asha",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "2c505c97-1eaa-4a2d-b081-14176627beb1",
+          "0985969c-58b8-4a7b-bfd4-d3d2961ab4ef"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "daylight",
+        "color": "yellow"
+      },
+      {
+        "id": "e8046f24-4129-403a-837c-f270621009da",
+        "code": "SH 09",
+        "title": "Waiting for booze",
+        "sceneLabel": "SCENE 12",
+        "description": "Danny and Vamshi waiting for booze",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "lavender"
+      },
+      {
+        "id": "139a1d0a-8055-4827-8e71-63311a528fa0",
+        "code": "SH 10",
+        "title": "First Sparks — Danny to Karthik",
+        "sceneLabel": "SCENE 13",
+        "description": "Friends first faceoff - Danny to Karthik",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "asha",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "8fac9b87-d504-475c-890e-c95c9d273357",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "e7c6c855-e1a4-458f-84e8-79a135556cf5",
+        "code": "SH 11",
+        "title": "The Karthiks Setup",
+        "sceneLabel": "SCENE 2",
+        "description": "Karthik's stop-motion setup",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "8fac9b87-d504-475c-890e-c95c9d273357",
+          "asha"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "94bd1259-dc1f-4612-a0a6-8a3e9bd23a2d",
+        "code": "SH 12",
+        "title": "Interrupted — slow-mo prep, then the knock",
+        "sceneLabel": "SCENE 4",
+        "description": "Interrupted — slow-mo prep, then the knock",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "45451fd8-b83a-4d56-bca1-7afd4d9e39d9",
+        "code": "SH 13",
+        "title": "The Dichotomy",
+        "sceneLabel": "SCENE 13",
+        "description": "Two Worlds — the party vs. the parents' side",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "ca905f72-69f8-4d97-bd25-f0d9c0ef500c",
+        "code": "SH 14",
+        "title": "The Guest Arrives",
+        "sceneLabel": "SCENE 9",
+        "description": "Subramaniam  enters and locked in bedroom",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "d9bdde4c-0e03-4453-85ba-2ef7385c7de0"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "80d8b026-1cb3-4a70-81ae-120d103e4fde",
+        "code": "SH 15",
+        "title": "Restart the party — the whisky theory",
+        "sceneLabel": "SCENE 5",
+        "description": "Restart the party — the whisky theory",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "7617bb71-6497-4647-9e9f-51e666376acd",
+        "code": "SH 16",
+        "title": "Conv1 - you are a character",
+        "sceneLabel": "",
+        "description": "Conv1 - you are a character",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "lavender"
+      },
+      {
+        "id": "3c6ce915-e230-4366-94cf-c994bd8fe05f",
+        "code": "SH 17",
+        "title": "Conv2 - Blackhole theory",
+        "sceneLabel": "SCENE 3",
+        "description": "Conv2 - Blackhole theory",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "lavender"
+      },
+      {
+        "id": "6d61ff02-16a1-45f0-a519-19633e55a02c",
+        "code": "SH 18",
+        "title": "Conv3 - Cunk theory",
+        "sceneLabel": "SCENE 5",
+        "description": "Conv3 - Cunk theory",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "lavender"
+      },
+      {
+        "id": "ac9cda3b-ba5a-4d54-b8df-8c0d20371e07",
+        "code": "SH 19",
+        "title": "Conv4 - Symptoms of something",
+        "sceneLabel": "SCENE 3",
+        "description": "Conv4 - Symptoms of something",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "lavender"
+      },
+      {
+        "id": "272f0c67-645b-4bd9-a283-c827806d1a8e",
+        "code": "SH 20",
+        "title": "High on weed",
+        "sceneLabel": "SCENE 3",
+        "description": "High on weed",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "cc839249-c77d-4a93-bca5-5573d2eea45a",
+        "code": "SH 21",
+        "title": "Morning Aftermath — the money is gone",
+        "sceneLabel": "",
+        "description": "Morning Aftermath — the money is gone",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "asha"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "b6ec0332-53db-4d57-aa96-f33768112f54",
+        "code": "SH 22",
+        "title": "Yashwanth - Theories",
+        "sceneLabel": "",
+        "description": "Yashwanth - Theories",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357",
+          "d9bdde4c-0e03-4453-85ba-2ef7385c7de0"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "sage"
+      },
+      {
+        "id": "3f119132-4780-490c-82b6-ee8ab26c3d14",
+        "code": "SH 23",
+        "title": "Danny, Vamshi - retrospective - nagalingam",
+        "sceneLabel": "SCENE 3",
+        "description": "Danny, Vamshi - retrospective - nagalingam",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "dfef498b-8813-49f3-98f6-ee6db845e793",
+        "code": "SH 24",
+        "title": "The Karthik Extraction",
+        "sceneLabel": "SCENE 3",
+        "description": "catch and get Karthik",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "e96ff1c5-284c-46b7-a1ef-05cc25c9e1de",
+        "code": "SH 25",
+        "title": "Solution via selling laptop",
+        "sceneLabel": "SCENE 32",
+        "description": "guys try to solve; laptop",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "bccd0d11-aa26-4557-a9ee-07f27ac7d114",
+        "code": "SH 26",
+        "title": "The Final Faceoff — boys vs. Venkat Reddy",
+        "sceneLabel": "SCENE 23",
+        "description": "The Final Faceoff — boys vs. Venkat Reddy",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "2c505c97-1eaa-4a2d-b081-14176627beb1",
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357",
+          "0985969c-58b8-4a7b-bfd4-d3d2961ab4ef"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "43682c99-38b7-4fbb-90a0-750810adb79b",
+        "code": "SH 27",
+        "title": "Get Red Bag",
+        "sceneLabel": "SCENE 23",
+        "description": "We need the red bag",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "asha",
+          "8fac9b87-d504-475c-890e-c95c9d273357"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "72155ea6-7941-4590-a69f-0af6584c7af2",
+        "code": "SH 28",
+        "title": "The Reveal — the parents knew all along",
+        "sceneLabel": "SCENE 23",
+        "description": "The Reveal — the parents knew all along",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "c764e36d-1753-46fd-9a6a-01c6df0d4e36",
+          "807127e4-f640-4c49-bbe7-3966084123a3",
+          "8fac9b87-d504-475c-890e-c95c9d273357",
+          "asha",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "ravi"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "lavender"
+      },
+      {
+        "id": "4050988e-0f5a-4882-b9f5-06158ed68309",
+        "code": "SH 29",
+        "title": "Credits: Loose Threads",
+        "sceneLabel": "SCENE 12",
+        "description": "Credits: Loose Threads",
+        "locationLabel": "",
+        "requiredPersonIds": [
+          "ravi",
+          "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+          "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+          "8fac9b87-d504-475c-890e-c95c9d273357",
+          "asha"
+        ],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      }
+    ],
+    "availability": [
+      {
+        "personId": "ravi",
+        "date": "2026-09-20",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-24",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-24",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-24",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-24",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-22",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-19",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-19",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-19",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-19",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-20",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-20",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-21",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-21",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-21",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-21",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-22",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-22",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-22",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-22",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-23",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-23",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-23",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-23",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-25",
+        "sessionId": "morning",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-25",
+        "sessionId": "afternoon",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-25",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-25",
+        "sessionId": "night",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-26",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-26",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-26",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-26",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-27",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-27",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-27",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-27",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-19",
+        "sessionId": "morning",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-19",
+        "sessionId": "afternoon",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-19",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-19",
+        "sessionId": "night",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-21",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-22",
+        "sessionId": "morning",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-22",
+        "sessionId": "afternoon",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-22",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-22",
+        "sessionId": "night",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-23",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-24",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-24",
+        "sessionId": "evening",
+        "status": "unconfirmed",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-24",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-25",
+        "sessionId": "morning",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-25",
+        "sessionId": "afternoon",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-26",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-27",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-26",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-27",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-27",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-26",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-26",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-27",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-25",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      }
+    ],
+    "assignments": [
+      {
+        "shotId": "shot-001",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "order": 0
+      },
+      {
+        "shotId": "shot-005",
+        "date": "2026-09-21",
+        "sessionId": "afternoon",
+        "order": 0
+      },
+      {
+        "shotId": "shot-008",
+        "date": "2026-09-22",
+        "sessionId": "evening",
+        "order": 0
+      },
+      {
+        "shotId": "shot-025",
+        "date": "2026-09-23",
+        "sessionId": "night",
+        "order": 0
+      },
+      {
+        "shotId": "shot-012",
+        "date": "2026-09-19",
+        "sessionId": "morning",
+        "order": 0
+      },
+      {
+        "shotId": "shot-014",
+        "date": "2026-09-19",
+        "sessionId": "morning",
+        "order": 1
+      }
+    ]
+  }
+}

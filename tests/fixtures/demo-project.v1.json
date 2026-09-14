@@ -1,0 +1,249 @@
+{
+  "format": "pakadbandi-project",
+  "schemaVersion": 1,
+  "exportedAt": "2026-09-14T00:00:00.000Z",
+  "project": {
+    "id": "the-way-home-demo",
+    "title": "The way home",
+    "timezone": "Asia/Kolkata",
+    "startDate": "2026-09-20",
+    "endDate": "2026-10-04",
+    "sessions": [
+      {
+        "id": "morning",
+        "label": "Morning",
+        "startMinute": 360,
+        "endMinute": 660
+      },
+      {
+        "id": "afternoon",
+        "label": "Afternoon",
+        "startMinute": 840,
+        "endMinute": 960
+      },
+      {
+        "id": "evening",
+        "label": "Evening",
+        "startMinute": 1020,
+        "endMinute": 1200
+      },
+      {
+        "id": "night",
+        "label": "Night",
+        "startMinute": 1200,
+        "endMinute": 1440
+      }
+    ],
+    "daylightDefault": {
+      "startMinute": 360,
+      "endMinute": 1080
+    },
+    "daylightByDate": [],
+    "coreCrewPersonIds": ["dev"],
+    "people": [
+      {
+        "id": "ravi",
+        "name": "Ravi",
+        "categories": ["cast"],
+        "role": "Arjun",
+        "defaultAvailability": "available"
+      },
+      {
+        "id": "asha",
+        "name": "Asha",
+        "categories": ["cast"],
+        "role": "Nila",
+        "defaultAvailability": "available"
+      },
+      {
+        "id": "dev",
+        "name": "Dev",
+        "categories": ["crew"],
+        "role": "Director",
+        "defaultAvailability": "available"
+      },
+      {
+        "id": "neel",
+        "name": "Neel",
+        "categories": ["crew"],
+        "role": "Cinematographer",
+        "defaultAvailability": "available"
+      },
+      {
+        "id": "meera",
+        "name": "Meera",
+        "categories": ["crew"],
+        "role": "Sound recordist",
+        "defaultAvailability": "unconfirmed"
+      }
+    ],
+    "shots": [
+      {
+        "id": "shot-012",
+        "code": "SH 012",
+        "title": "The conversation",
+        "sceneLabel": "SCENE 04",
+        "description": "Ravi finally tells Asha why he came back. A quiet two-shot across the kitchen table.",
+        "locationLabel": "Kitchen",
+        "requiredPersonIds": ["ravi", "asha"],
+        "estimatedMinutes": 90,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "shot-014",
+        "code": "SH 014",
+        "title": "A moment alone",
+        "sceneLabel": "SCENE 05",
+        "description": "Asha at the window, watching the street below. Hold on the reflection.",
+        "locationLabel": "Bedroom",
+        "requiredPersonIds": ["asha"],
+        "estimatedMinutes": 45,
+        "lighting": "daylight",
+        "color": "sage"
+      },
+      {
+        "id": "shot-018",
+        "code": "SH 018",
+        "title": "One last ride",
+        "sceneLabel": "SCENE 07",
+        "description": "Tracking shot alongside the bicycle as it passes the closed shops.",
+        "locationLabel": "Market street",
+        "requiredPersonIds": ["ravi", "neel"],
+        "estimatedMinutes": 120,
+        "lighting": "nighttime",
+        "color": "lavender"
+      },
+      {
+        "id": "shot-021",
+        "code": "SH 021",
+        "title": "The letter",
+        "sceneLabel": "SCENE 08",
+        "description": "Insert: the envelope opens. Rack focus from the handwriting to Asha.",
+        "locationLabel": "Living room",
+        "requiredPersonIds": ["asha", "meera"],
+        "estimatedMinutes": 30,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "shot-001",
+        "code": "SH 001",
+        "title": "A town waking up",
+        "sceneLabel": "SCENE 01",
+        "description": "Establishing wide of the lane in the early morning.",
+        "locationLabel": "Old town",
+        "requiredPersonIds": ["neel"],
+        "estimatedMinutes": 75,
+        "lighting": "daylight",
+        "color": "sage"
+      },
+      {
+        "id": "shot-005",
+        "code": "SH 005",
+        "title": "Home, again",
+        "sceneLabel": "SCENE 02",
+        "description": "Ravi arrives at the front gate with his bag.",
+        "locationLabel": "Courtyard",
+        "requiredPersonIds": ["ravi"],
+        "estimatedMinutes": 60,
+        "lighting": "anytime",
+        "color": "yellow"
+      },
+      {
+        "id": "shot-008",
+        "code": "SH 008",
+        "title": "Tea for two",
+        "sceneLabel": "SCENE 03",
+        "description": "Asha pours tea. Close coverage of hands and cups.",
+        "locationLabel": "Kitchen",
+        "requiredPersonIds": ["asha"],
+        "estimatedMinutes": 45,
+        "lighting": "anytime",
+        "color": "lavender"
+      },
+      {
+        "id": "shot-025",
+        "code": "SH 025",
+        "title": "Lights out",
+        "sceneLabel": "SCENE 09",
+        "description": "The house falls quiet. End on the empty hallway.",
+        "locationLabel": "Hallway",
+        "requiredPersonIds": ["neel"],
+        "estimatedMinutes": 60,
+        "lighting": "nighttime",
+        "color": "sage"
+      }
+    ],
+    "availability": [
+      {
+        "personId": "ravi",
+        "date": "2026-09-20",
+        "sessionId": "afternoon",
+        "status": "unavailable",
+        "note": "Prior commitment"
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-24",
+        "sessionId": "morning",
+        "status": "unavailable",
+        "note": "Away all day"
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-24",
+        "sessionId": "afternoon",
+        "status": "unavailable",
+        "note": "Away all day"
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-24",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": "Away all day"
+      },
+      {
+        "personId": "ravi",
+        "date": "2026-09-24",
+        "sessionId": "night",
+        "status": "unavailable",
+        "note": "Away all day"
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-22",
+        "sessionId": "afternoon",
+        "status": "unconfirmed",
+        "note": "Awaiting confirmation"
+      }
+    ],
+    "assignments": [
+      {
+        "shotId": "shot-001",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "order": 0
+      },
+      {
+        "shotId": "shot-005",
+        "date": "2026-09-21",
+        "sessionId": "afternoon",
+        "order": 0
+      },
+      {
+        "shotId": "shot-008",
+        "date": "2026-09-22",
+        "sessionId": "evening",
+        "order": 0
+      },
+      {
+        "shotId": "shot-025",
+        "date": "2026-09-23",
+        "sessionId": "night",
+        "order": 0
+      }
+    ]
+  }
+}
