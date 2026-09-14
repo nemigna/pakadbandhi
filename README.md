@@ -1,6 +1,6 @@
 # Pakadbandi
 
-A browser-based short-film shooting planner built from `PAKADBANDI_TECHNICAL_SPEC.md`. The implementation is local only; no host has been selected or publication authorized.
+A browser-based short-film shooting planner built from `PAKADBANDI_TECHNICAL_SPEC.md`. Configured for static hosting on Vercel.
 
 ## Run locally
 
@@ -59,8 +59,14 @@ npm run test:e2e
 
 Domain/component tests cover validation, lighting/waiting, ordering, availability, dependency checks, revision tracking, form submissions, and JSON exchange. Browser tests cover the editing/scheduling/export/reset/import journey, rejected and canceled dragging, reordering, mobile layouts, themes, timezone independence, and performance on a 100-shot/30-person/30-day fixture. `tests/fixtures/demo-project.v1.json` is a separate, stable scheduling regression fixture; it does not supply the app’s demo.
 
-## Release boundaries
+## Deploy to Vercel
 
-No publication is performed. Before deploying, choose a host, verify the asset base path on that host, and review the actual screenshots and interactions. Human review of assistive technology, touch ergonomics, and real device behavior remains valuable; automated checks do not certify WCAG conformance. Labor rules, astronomical daylight, optimization, call sheets, and multi-user persistence are outside this version.
+Import `nemigna/pakadbandhi` into Vercel and use `master` as the production branch. Keep the root directory at the repository root. The checked-in `vercel.json` selects Vite, installs with `npm ci`, builds with `npm run build`, and serves `dist/`. Node 22.x is selected through `package.json`. SPA requests fall back to `index.html`.
+
+No environment variables, database, or server functions are required. After connecting the repository, pushes to the production branch trigger deployments. Alternatively, an authenticated Vercel CLI can deploy from this directory with `npx vercel --prod`.
+
+Hosting shares the application and bundled demo; each visitor’s edits remain in their browser session. JSON export/import is still required to save or transfer a project.
+
+Configuration follows [Vercel’s Vite guide](https://vercel.com/docs/frameworks/frontend/vite). Human review of assistive technology, touch ergonomics, and real device behavior remains valuable; automated checks do not certify WCAG conformance. Labor rules, astronomical daylight, optimization, call sheets, and multi-user persistence are outside this version.
 
 API references used during implementation: [dnd-kit React quickstart](https://dndkit.com/react/quickstart/) and [shadcn Vite setup](https://ui.shadcn.com/docs/installation/vite).
