@@ -35,7 +35,8 @@ test("light/dark workspace and mobile editor have no automated WCAG A/AA violati
   await expect(
     page.getByRole("button", { name: "Export JSON", exact: true }),
   ).toBeVisible();
-  await page.getByRole("button", { name: "Shots", exact: true }).click();
+  await page.getByRole("button", { name: "Schedule", exact: true }).click();
+  await page.getByLabel("Jump to shooting date").fill("2026-09-24");
   await page.getByRole("button", { name: "Edit SH 03", exact: true }).click();
   await page.evaluate(() =>
     Promise.all(

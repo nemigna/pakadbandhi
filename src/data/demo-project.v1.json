@@ -1,7 +1,7 @@
 {
   "format": "pakadbandi-project",
   "schemaVersion": 1,
-  "exportedAt": "2026-09-14T17:23:37.706Z",
+  "exportedAt": "2026-09-15T17:47:40.510Z",
   "project": {
     "id": "the-way-home-demo",
     "title": "Yachacha Gachacha",
@@ -159,7 +159,7 @@
         "code": "SH 01",
         "title": "Home Base — Vamshi and his mother",
         "sceneLabel": "SCENE 01",
-        "description": "Home Base — Vamshi and his mother",
+        "description": "Home Base — Vamshi and his mother\nThe first shot - Vamshi talks to his mother about dad",
         "locationLabel": "Kitchen",
         "requiredPersonIds": [
           "ravi",
@@ -188,7 +188,7 @@
         "code": "SH 03",
         "title": "Danny Makes an Entrance",
         "sceneLabel": "SCENE 03",
-        "description": "Danny Makes an Entrance",
+        "description": "Danny Makes an Entrance in steps snd on the way to vamshi house",
         "locationLabel": "Stairs and Road",
         "requiredPersonIds": [
           "f534ee7e-9bf4-4ae4-a869-0c586159ac82"
@@ -202,7 +202,7 @@
         "code": "SH 04",
         "title": "Home Base — Father",
         "sceneLabel": "SCENE 08",
-        "description": " Vamshi and his father",
+        "description": " Vamshi and his father first scene",
         "locationLabel": "Living room",
         "requiredPersonIds": [
           "ravi",
@@ -217,7 +217,7 @@
         "code": "SH 05",
         "title": "Parents Leave, Danny Arrives",
         "sceneLabel": "Scene 5",
-        "description": "Parents Leave, Danny Arrives",
+        "description": "Parents Leave in car, Danny Arrives. \nDanny and Vamshi goes into house",
         "locationLabel": "Outside - ",
         "requiredPersonIds": [
           "ravi",
@@ -236,7 +236,7 @@
         "code": "SH 06",
         "title": "Get the booze",
         "sceneLabel": "SCENE 12",
-        "description": "Get the booze — Yashwanth & Nani score the booze",
+        "description": "Get the booze — Yashwanth & Nani get the booze and talk about getting weed ",
         "locationLabel": "",
         "requiredPersonIds": [
           "asha",
@@ -251,7 +251,7 @@
         "code": "SH 07",
         "title": "Who's the boss",
         "sceneLabel": "SCENE 1",
-        "description": "Venkat Reddy, Pasha & Zubeda",
+        "description": "Venkat Reddy, Pasha & Zubeda. Elavation to Venkat reddy",
         "locationLabel": "",
         "requiredPersonIds": [],
         "estimatedMinutes": 60,
@@ -280,7 +280,7 @@
         "code": "SH 09",
         "title": "Waiting for booze",
         "sceneLabel": "SCENE 12",
-        "description": "Danny and Vamshi waiting for booze",
+        "description": "Danny and Vamshi waiting for booze. Danny talks about glasses etc",
         "locationLabel": "",
         "requiredPersonIds": [
           "ravi",
@@ -295,7 +295,7 @@
         "code": "SH 10",
         "title": "First Sparks — Danny to Karthik",
         "sceneLabel": "SCENE 13",
-        "description": "Friends first faceoff - Danny to Karthik",
+        "description": "Friends first faceoff after getting booze and weed\nYash and Nanin bitch about Danny. Karthik arrvies ",
         "locationLabel": "",
         "requiredPersonIds": [
           "ravi",
@@ -313,7 +313,7 @@
         "code": "SH 11",
         "title": "The Karthiks Setup",
         "sceneLabel": "SCENE 2",
-        "description": "Karthik's stop-motion setup",
+        "description": "Karthik's looks at table and chairs and then stop-motion animation of the setup",
         "locationLabel": "",
         "requiredPersonIds": [
           "ravi",
@@ -331,7 +331,7 @@
         "code": "SH 12",
         "title": "Interrupted — slow-mo prep, then the knock",
         "sceneLabel": "SCENE 4",
-        "description": "Interrupted — slow-mo prep, then the knock",
+        "description": "Interrupted by the knock\n — slow-mo prep, the differential speed setup\nthen the knock",
         "locationLabel": "",
         "requiredPersonIds": [
           "ravi",
@@ -349,7 +349,7 @@
         "code": "SH 13",
         "title": "The Dichotomy",
         "sceneLabel": "SCENE 13",
-        "description": "Two Worlds — the party vs. the parents' side",
+        "description": "Two Worlds — the party vs. the parents' side\nIn the theatre room - dicussion about how to hanle Subramanyam",
         "locationLabel": "",
         "requiredPersonIds": [
           "ravi",
@@ -393,7 +393,7 @@
         ],
         "estimatedMinutes": 60,
         "lighting": "anytime",
-        "color": "yellow"
+        "color": "lavender"
       },
       {
         "id": "7617bb71-6497-4647-9e9f-51e666376acd",
@@ -409,7 +409,7 @@
           "asha",
           "8fac9b87-d504-475c-890e-c95c9d273357"
         ],
-        "estimatedMinutes": 60,
+        "estimatedMinutes": 6,
         "lighting": "anytime",
         "color": "lavender"
       },
@@ -427,7 +427,7 @@
           "asha",
           "8fac9b87-d504-475c-890e-c95c9d273357"
         ],
-        "estimatedMinutes": 60,
+        "estimatedMinutes": 6,
         "lighting": "anytime",
         "color": "lavender"
       },
@@ -445,7 +445,7 @@
           "asha",
           "8fac9b87-d504-475c-890e-c95c9d273357"
         ],
-        "estimatedMinutes": 60,
+        "estimatedMinutes": 6,
         "lighting": "anytime",
         "color": "lavender"
       },
@@ -483,14 +483,14 @@
         ],
         "estimatedMinutes": 60,
         "lighting": "anytime",
-        "color": "yellow"
+        "color": "lavender"
       },
       {
         "id": "cc839249-c77d-4a93-bca5-5573d2eea45a",
         "code": "SH 21",
         "title": "Morning Aftermath — the money is gone",
         "sceneLabel": "",
-        "description": "Morning Aftermath — the money is gone",
+        "description": "Morning Aftermath — guys wake up --  the money is gone",
         "locationLabel": "",
         "requiredPersonIds": [
           "ravi",
@@ -526,7 +526,7 @@
         "code": "SH 23",
         "title": "Danny, Vamshi - retrospective - nagalingam",
         "sceneLabel": "SCENE 3",
-        "description": "Danny, Vamshi - retrospective - nagalingam",
+        "description": "Danny, Vamshi - retrospective  of what happened\nDanny calls Nagalingam\n",
         "locationLabel": "",
         "requiredPersonIds": [
           "ravi",
@@ -575,7 +575,7 @@
         "code": "SH 26",
         "title": "The Final Faceoff — boys vs. Venkat Reddy",
         "sceneLabel": "SCENE 23",
-        "description": "The Final Faceoff — boys vs. Venkat Reddy",
+        "description": "The Final Faceoff — boys vs. Venkat Reddy\nVenkat reddy give 2 lakhs and takes the car. \nVamshi realises - red bag missing and runs to get it with Yash and Nani",
         "locationLabel": "",
         "requiredPersonIds": [
           "ravi",
@@ -595,7 +595,7 @@
         "code": "SH 27",
         "title": "Get Red Bag",
         "sceneLabel": "SCENE 23",
-        "description": "We need the red bag",
+        "description": "We need the red bag in the bike",
         "locationLabel": "",
         "requiredPersonIds": [
           "ravi",
@@ -687,7 +687,7 @@
         "personId": "asha",
         "date": "2026-09-22",
         "sessionId": "afternoon",
-        "status": "available",
+        "status": "unconfirmed",
         "note": ""
       },
       {
@@ -911,35 +911,35 @@
         "personId": "asha",
         "date": "2026-09-19",
         "sessionId": "morning",
-        "status": "unavailable",
+        "status": "available",
         "note": ""
       },
       {
         "personId": "asha",
         "date": "2026-09-19",
         "sessionId": "afternoon",
-        "status": "unavailable",
+        "status": "available",
         "note": ""
       },
       {
         "personId": "asha",
         "date": "2026-09-19",
         "sessionId": "evening",
-        "status": "unavailable",
+        "status": "available",
         "note": ""
       },
       {
         "personId": "asha",
         "date": "2026-09-19",
         "sessionId": "night",
-        "status": "unavailable",
+        "status": "available",
         "note": ""
       },
       {
         "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
         "date": "2026-09-21",
         "sessionId": "evening",
-        "status": "unavailable",
+        "status": "available",
         "note": ""
       },
       {
@@ -1074,9 +1074,839 @@
         "sessionId": "night",
         "status": "available",
         "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-19",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-19",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-19",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-19",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-20",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-20",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-20",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-21",
+        "sessionId": "morning",
+        "status": "unconfirmed",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-21",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-21",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-23",
+        "sessionId": "afternoon",
+        "status": "unconfirmed",
+        "note": ""
+      },
+      {
+        "personId": "b795fc47-aea2-4104-a3f7-c127aabf57bc",
+        "date": "2026-09-23",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-19",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-19",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-19",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-19",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-20",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-20",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-20",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-21",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-22",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-23",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-21",
+        "sessionId": "morning",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-21",
+        "sessionId": "afternoon",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-21",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-22",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-22",
+        "sessionId": "afternoon",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-22",
+        "sessionId": "morning",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-23",
+        "sessionId": "morning",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-23",
+        "sessionId": "afternoon",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-23",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-24",
+        "sessionId": "morning",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-24",
+        "sessionId": "afternoon",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-24",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-25",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-25",
+        "sessionId": "afternoon",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-25",
+        "sessionId": "morning",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-24",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-25",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-26",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-26",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-26",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-26",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-27",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-27",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-27",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "8fac9b87-d504-475c-890e-c95c9d273357",
+        "date": "2026-09-27",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-21",
+        "sessionId": "morning",
+        "status": "unconfirmed",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-21",
+        "sessionId": "afternoon",
+        "status": "unconfirmed",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-21",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-22",
+        "sessionId": "evening",
+        "status": "unconfirmed",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-22",
+        "sessionId": "morning",
+        "status": "unconfirmed",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-23",
+        "sessionId": "morning",
+        "status": "unconfirmed",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-23",
+        "sessionId": "afternoon",
+        "status": "unconfirmed",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-23",
+        "sessionId": "evening",
+        "status": "unconfirmed",
+        "note": ""
+      },
+      {
+        "personId": "c764e36d-1753-46fd-9a6a-01c6df0d4e36",
+        "date": "2026-09-19",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "c764e36d-1753-46fd-9a6a-01c6df0d4e36",
+        "date": "2026-09-19",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "c764e36d-1753-46fd-9a6a-01c6df0d4e36",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "c764e36d-1753-46fd-9a6a-01c6df0d4e36",
+        "date": "2026-09-20",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "c764e36d-1753-46fd-9a6a-01c6df0d4e36",
+        "date": "2026-09-20",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "c764e36d-1753-46fd-9a6a-01c6df0d4e36",
+        "date": "2026-09-20",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-19",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-19",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-19",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-19",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-20",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-20",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-20",
+        "sessionId": "night",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "2c505c97-1eaa-4a2d-b081-14176627beb1",
+        "date": "2026-09-19",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "2c505c97-1eaa-4a2d-b081-14176627beb1",
+        "date": "2026-09-19",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "2c505c97-1eaa-4a2d-b081-14176627beb1",
+        "date": "2026-09-19",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "2c505c97-1eaa-4a2d-b081-14176627beb1",
+        "date": "2026-09-19",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "2c505c97-1eaa-4a2d-b081-14176627beb1",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "2c505c97-1eaa-4a2d-b081-14176627beb1",
+        "date": "2026-09-20",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "2c505c97-1eaa-4a2d-b081-14176627beb1",
+        "date": "2026-09-20",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "2c505c97-1eaa-4a2d-b081-14176627beb1",
+        "date": "2026-09-20",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "0985969c-58b8-4a7b-bfd4-d3d2961ab4ef",
+        "date": "2026-09-19",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "0985969c-58b8-4a7b-bfd4-d3d2961ab4ef",
+        "date": "2026-09-19",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "0985969c-58b8-4a7b-bfd4-d3d2961ab4ef",
+        "date": "2026-09-19",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "0985969c-58b8-4a7b-bfd4-d3d2961ab4ef",
+        "date": "2026-09-19",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "0985969c-58b8-4a7b-bfd4-d3d2961ab4ef",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "0985969c-58b8-4a7b-bfd4-d3d2961ab4ef",
+        "date": "2026-09-20",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "0985969c-58b8-4a7b-bfd4-d3d2961ab4ef",
+        "date": "2026-09-20",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "0985969c-58b8-4a7b-bfd4-d3d2961ab4ef",
+        "date": "2026-09-20",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-23",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-23",
+        "sessionId": "night",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-26",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-26",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-26",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-26",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-27",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-27",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-27",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-27",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-21",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-21",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-24",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-24",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-24",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-24",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-25",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-25",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-25",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-25",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-26",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-26",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-26",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-26",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-27",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-27",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-27",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "d9bdde4c-0e03-4453-85ba-2ef7385c7de0",
+        "date": "2026-09-27",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "f534ee7e-9bf4-4ae4-a869-0c586159ac82",
+        "date": "2026-09-21",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
       }
     ],
     "assignments": [
+      {
+        "shotId": "dc9919b8-f66f-4d22-b7c4-2ae5b1d2815a",
+        "date": "2026-09-20",
+        "sessionId": "evening",
+        "order": 0
+      },
+      {
+        "shotId": "shot-014",
+        "date": "2026-09-21",
+        "sessionId": "morning",
+        "order": 0
+      },
+      {
+        "shotId": "bccd0d11-aa26-4557-a9ee-07f27ac7d114",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "order": 0
+      },
       {
         "shotId": "shot-012",
         "date": "2026-09-19",
@@ -1084,10 +1914,154 @@
         "order": 0
       },
       {
-        "shotId": "shot-014",
+        "shotId": "e8046f24-4129-403a-837c-f270621009da",
+        "date": "2026-09-24",
+        "sessionId": "afternoon",
+        "order": 0
+      },
+      {
+        "shotId": "139a1d0a-8055-4827-8e71-63311a528fa0",
         "date": "2026-09-19",
+        "sessionId": "night",
+        "order": 0
+      },
+      {
+        "shotId": "cc839249-c77d-4a93-bca5-5573d2eea45a",
+        "date": "2026-09-26",
+        "sessionId": "morning",
+        "order": 0
+      },
+      {
+        "shotId": "45451fd8-b83a-4d56-bca1-7afd4d9e39d9",
+        "date": "2026-09-20",
+        "sessionId": "afternoon",
+        "order": 0
+      },
+      {
+        "shotId": "689ee47a-d94d-45f5-8c1d-156a169745ab",
+        "date": "2026-09-21",
+        "sessionId": "evening",
+        "order": 0
+      },
+      {
+        "shotId": "ca905f72-69f8-4d97-bd25-f0d9c0ef500c",
+        "date": "2026-09-24",
+        "sessionId": "night",
+        "order": 0
+      },
+      {
+        "shotId": "shot-021",
+        "date": "2026-09-19",
+        "sessionId": "evening",
+        "order": 0
+      },
+      {
+        "shotId": "875ac120-0949-4f7c-843f-c4fb74094c0a",
+        "date": "2026-09-24",
+        "sessionId": "morning",
+        "order": 0
+      },
+      {
+        "shotId": "3c6ce915-e230-4366-94cf-c994bd8fe05f",
+        "date": "2026-09-26",
+        "sessionId": "night",
+        "order": 0
+      },
+      {
+        "shotId": "94bd1259-dc1f-4612-a0a6-8a3e9bd23a2d",
+        "date": "2026-09-21",
+        "sessionId": "night",
+        "order": 0
+      },
+      {
+        "shotId": "80d8b026-1cb3-4a70-81ae-120d103e4fde",
+        "date": "2026-09-26",
+        "sessionId": "evening",
+        "order": 0
+      },
+      {
+        "shotId": "dfef498b-8813-49f3-98f6-ee6db845e793",
+        "date": "2026-09-27",
+        "sessionId": "afternoon",
+        "order": 0
+      },
+      {
+        "shotId": "3f119132-4780-490c-82b6-ee8ab26c3d14",
+        "date": "2026-09-24",
+        "sessionId": "afternoon",
+        "order": 1
+      },
+      {
+        "shotId": "43682c99-38b7-4fbb-90a0-750810adb79b",
+        "date": "2026-09-26",
         "sessionId": "morning",
         "order": 1
+      },
+      {
+        "shotId": "e95f3b29-7ca2-439c-a873-588555392cd3",
+        "date": "2026-09-19",
+        "sessionId": "evening",
+        "order": 1
+      },
+      {
+        "shotId": "shot-018",
+        "date": "2026-09-24",
+        "sessionId": "morning",
+        "order": 1
+      },
+      {
+        "shotId": "6d61ff02-16a1-45f0-a519-19633e55a02c",
+        "date": "2026-09-26",
+        "sessionId": "night",
+        "order": 1
+      },
+      {
+        "shotId": "e7c6c855-e1a4-458f-84e8-79a135556cf5",
+        "date": "2026-09-21",
+        "sessionId": "night",
+        "order": 1
+      },
+      {
+        "shotId": "7617bb71-6497-4647-9e9f-51e666376acd",
+        "date": "2026-09-26",
+        "sessionId": "evening",
+        "order": 1
+      },
+      {
+        "shotId": "e96ff1c5-284c-46b7-a1ef-05cc25c9e1de",
+        "date": "2026-09-27",
+        "sessionId": "afternoon",
+        "order": 1
+      },
+      {
+        "shotId": "4050988e-0f5a-4882-b9f5-06158ed68309",
+        "date": "2026-09-27",
+        "sessionId": "evening",
+        "order": 0
+      },
+      {
+        "shotId": "ac9cda3b-ba5a-4d54-b8df-8c0d20371e07",
+        "date": "2026-09-26",
+        "sessionId": "night",
+        "order": 2
+      },
+      {
+        "shotId": "72155ea6-7941-4590-a69f-0af6584c7af2",
+        "date": "2026-09-27",
+        "sessionId": "evening",
+        "order": 1
+      },
+      {
+        "shotId": "272f0c67-645b-4bd9-a283-c827806d1a8e",
+        "date": "2026-09-26",
+        "sessionId": "night",
+        "order": 3
+      },
+      {
+        "shotId": "b6ec0332-53db-4d57-aa96-f33768112f54",
+        "date": "2026-09-27",
+        "sessionId": "night",
+        "order": 0
       }
     ]
   }

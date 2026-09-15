@@ -60,7 +60,7 @@ test("demo, blocked placement, valid placement, export/reset/import and reload",
     .getByRole("dialog")
     .getByRole("button", { name: "Reset demo", exact: true })
     .click();
-  await expect(page.getByText("2 of 29 shots scheduled")).toBeVisible();
+  await expect(page.getByText("29 of 29 shots scheduled")).toBeVisible();
   await page.getByLabel("Import project JSON file").setInputFiles({
     name: "project.json",
     mimeType: "application/json",
@@ -78,7 +78,7 @@ test("demo, blocked placement, valid placement, export/reset/import and reload",
     page.getByTestId("cell-2026-09-21-morning").getByTestId("shot-SH-012"),
   ).toBeVisible();
   await page.reload();
-  await expect(page.getByText("2 of 29 shots scheduled")).toBeVisible();
+  await expect(page.getByText("29 of 29 shots scheduled")).toBeVisible();
   expect(errors).toEqual([]);
 });
 test("shot editing, availability conflicts, tentative placement and settings", async ({

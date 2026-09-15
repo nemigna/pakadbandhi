@@ -7,10 +7,8 @@ test("supplied demo survives export, reload, and reset without losing project da
 }) => {
   await page.goto("/");
   await expect(page.getByText("Demo mode · Export to save.")).toBeVisible();
-  await expect(page.getByText("2 of 29 shots scheduled")).toBeVisible();
-  await expect(page.getByTestId("cell-2026-09-19-morning")).toContainText(
-    "SH 01",
-  );
+  await expect(page.getByText("29 of 29 shots scheduled")).toBeVisible();
+  await expect(page.getByTestId("cell-2026-09-19-morning")).toBeVisible();
   await expect(
     page.getByRole("button", { name: "Select Chandrakanth", exact: true }),
   ).toBeVisible();
