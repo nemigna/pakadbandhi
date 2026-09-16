@@ -1,6 +1,6 @@
 # Pakadbandi
 
-A browser-based short-film shooting planner built from `PAKADBANDI_TECHNICAL_SPEC.md`. Configured for static hosting on Vercel.
+A browser-based short-film shooting planner built from `PAKADBANDI_TECHNICAL_SPEC.md`. Hosted on Vercel with an Upstash Redis cloud snapshot and a key-protected save endpoint.
 
 ## Run locally
 
@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open http://127.0.0.1:5173. The bundled demo is the supplied super final export of “Yachacha Gachacha”: 29 shots, 12 people, 193 availability overrides, and all 29 shots scheduled. Its shooting range is September 19–27, 2026; the calendar opens on September 19 with no shot selected. Fresh visits and Reset demo load this snapshot from `src/data/demo-project.v1.json`.
+Open http://127.0.0.1:5173. The bundled demo is the supplied super final export of “Yachacha Gachacha”: 29 shots, 12 people, 193 availability overrides, and all 29 shots scheduled. Its shooting range is September 19–27, 2026; the calendar opens on September 19 with no shot selected. When no cloud project exists, fresh visits load this snapshot from `src/data/demo-project.v1.json`. Reset demo always restores it locally.
 
 ```sh
 npm run typecheck
@@ -21,7 +21,7 @@ npm run build
 npm run preview
 ```
 
-The static production output is in `dist/`. No backend, secrets, accounts, analytics, localStorage, sessionStorage, or project database is used. Refreshing restores the bundled demo. Theme choice also lasts only for the current page session.
+The frontend production output is in `dist/`. The Vercel function in `api/project.ts` loads and saves one project snapshot in Upstash Redis. The saved project is publicly readable; updates require a separate save key. Theme choice lasts only for the current page session. No browser storage is used for credentials. `npm run dev` serves both the editor and the cloud API at http://localhost:5173, using server-only credentials from `.env.local`. Restart the dev server after changing credentials. Local saves use the configured Redis key, so they update the same cloud snapshot as any deployment using that key. `npm run preview` serves only the static build; use the dev server or Vercel for cloud access.
 
 ## Plan a shoot
 
@@ -31,7 +31,7 @@ The static production output is in `dist/`. No backend, secrets, accounts, analy
 - Choose a cast/crew member, select an availability tool, and click or paint cells. Date headings apply the tool to the whole day. **Edit range & reasons** supports all operations without painting, including removal of overrides.
 - New people start unconfirmed. Core crew is inherited by every shot. Availability applies to the whole session.
 - Open **Project settings** to edit the title, production timezone, shooting range, session labels/times, daylight assumptions, and core crew. The range cannot strand assignments or dated overrides; remove those records first.
-- **Export JSON** initiates a download. Import validates the complete file and shows a replacement preview. Keep the exported file to retain your work; the website URL does not share your edits.
+- **Export JSON** initiates a download. Import validates the complete file and shows a replacement preview. Use **Save to cloud** to publish the current project after entering your save key. Keep exported files as backups. Unsaved edits remain local to this tab.
 - On phones, switch between Shots, Schedule, and People. The calendar displays one day, with the same scheduling dialog and editing functions.
 
 ## Architecture and decisions
@@ -61,11 +61,22 @@ Domain/component tests cover validation, lighting/waiting, ordering, availabilit
 
 ## Deploy to Vercel
 
-Import `nemigna/pakadbandhi` into Vercel and use `master` as the production branch. Keep the root directory at the repository root. The checked-in `vercel.json` selects Vite, installs with `npm ci`, builds with `npm run build`, and serves `dist/`. Node 22.x is selected through `package.json`. SPA requests fall back to `index.html`.
+Import `nemigna/pakadbandhi` into Vercel and use `master` as the production branch. Keep the root directory at the repository root. The checked-in `vercel.json` selects Vite, installs with `npm ci`, builds with `npm run build`, and serves `dist/`. Node 22.x is selected through `package.json`. SPA requests fall back to `index.html`; `/api/` routes are excluded from that rewrite.
 
-No environment variables, database, or server functions are required. After connecting the repository, pushes to the production branch trigger deployments. Alternatively, an authenticated Vercel CLI can deploy from this directory with `npx vercel --prod`.
+Configure these server-side environment variables in Vercel before deploying:
 
-Hosting shares the application and bundled demo; each visitor’s edits remain in their browser session. JSON export/import is still required to save or transfer a project.
+- `UPSTASH_REDIS_REST_URL`: your Upstash REST endpoint.
+- `UPSTASH_REDIS_REST_TOKEN`: the database write token.
+- `PAKADBANDI_SAVE_KEY`: a separate random secret of 24–256 characters. Generate one with `openssl rand -hex 24`; this is what you enter in the Save dialog.
+- `PAKADBANDI_REDIS_KEY`: optional, defaults to `pakadbandi:project:v1`. Set a different key (or use a separate database) for Preview deployments to isolate test saves.
+
+See `.env.example`. Put local values in the ignored `.env.local`; never prefix secrets with `VITE_`. Redeploy after changing Vercel environment variables. After connecting the repository, pushes to the production branch trigger deployments. An authenticated Vercel CLI can also deploy with `npx vercel --prod`.
+
+At startup, the app reads the cloud snapshot. An empty database opens the demo without writing it; the first successful save creates the snapshot. If loading fails, the demo editor remains available with a visible error and cloud saving disabled; export any local edits before reloading to retry. Editing, import, and Reset demo do not write to the database until you explicitly save.
+
+The server validates project structure, checks the separate save key with a constant-time comparison, and rate-limits failed key attempts per client over five minutes. An atomic Redis Lua operation checks the loaded version before saving, so a stale tab cannot silently overwrite a newer save. On a conflict, export local edits and reload; there is no automatic merge. Saves replace the snapshot without a TTL. Keep JSON exports as backups; cloud history is not maintained.
+
+Cloud requests are capped at 4,000,000 bytes to leave headroom below Vercel’s 4.5 MB function payload limit. Local import/export retains its existing 5 MiB limit. Credentials and upstream error details are never returned by the API. Anyone who knows the save key can write; there are no individual user accounts. Public reads include the entire project, including names and availability notes.
 
 Configuration follows [Vercel’s Vite guide](https://vercel.com/docs/frameworks/frontend/vite). Human review of assistive technology, touch ergonomics, and real device behavior remains valuable; automated checks do not certify WCAG conformance. Labor rules, astronomical daylight, optimization, call sheets, and multi-user persistence are outside this version.
 

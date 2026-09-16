@@ -5,7 +5,7 @@ import { ProjectProvider } from "./state/project-context";
 import "./styles/globals.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ProjectProvider>
+    <ProjectProvider enableCloud>
       <App />
     </ProjectProvider>
   </React.StrictMode>,

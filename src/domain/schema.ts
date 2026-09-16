@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { dayNumber, isLocalDate, SESSION_IDS } from "./dates";
+import { dayNumber, isLocalDate, SESSION_IDS } from "./dates.ts";
 const id = z.string().trim().min(1).max(120);
 const label = z.string().trim().min(1).max(120);
 const optionalLabel = z.string().max(120);

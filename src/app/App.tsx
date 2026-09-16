@@ -33,7 +33,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
 import { DropdownMenu } from "@/components/ui/dropdown-menu";
-import { useProject, useCommands } from "@/state/project-context";
+import { useProject, useCommands, useCloud } from "@/state/project-context";
 import { createDemoProject } from "@/data/demo";
 import { addDays, datesBetween, dateLabel } from "@/domain/dates";
 import {
@@ -60,6 +60,7 @@ import {
   ShotEditor,
 } from "@/features/editors";
 import { downloadProject, readProjectFile } from "@/features/project-files";
+import { CloudSave } from "@/features/cloud-save";
 import { useTheme } from "@/features/theme";
 type Modal =
   | { type: "shot"; shot?: Shot }
@@ -72,6 +73,7 @@ type Modal =
   | null;
 export function App() {
   const state = useProject();
+  const cloud = useCloud();
   const { project } = state;
   const { commit, dispatch } = useCommands();
   const { theme, setTheme } = useTheme();
@@ -108,7 +110,7 @@ export function App() {
   const [shelfFilter, setShelfFilter] = useState<"unscheduled" | "all">(
     "unscheduled",
   );
-  const dirty = state.revision !== state.exportedRevision;
+  const dirty = state.revision !== state.exportedRevision && !cloud?.saved;
   const currentDate =
     windowStart < project.startDate
       ? project.startDate
@@ -352,10 +354,15 @@ export function App() {
             <ChevronDown size={14} />
           </button>
           <span className="demo-label">
-            {state.source === "demo" ? "DEMO PROJECT" : "IMPORTED PROJECT"}
+            {state.source === "cloud"
+              ? "CLOUD PROJECT"
+              : state.source === "demo"
+                ? "DEMO PROJECT"
+                : "IMPORTED PROJECT"}
           </span>
           <div className="spacer" />
           <div className="header-actions">
+            <CloudSave />
             <DropdownMenu
               trigger={
                 <Button size="icon" variant="ghost" aria-label="Choose theme">
@@ -426,14 +433,20 @@ export function App() {
         <div className="save-strip">
           <span>
             <span className="save-dot" />
-            {state.source === "demo"
-              ? "Demo mode · Export to save."
-              : "Imported project · Export to save changes."}
+            {cloud
+              ? cloud.message
+              : state.source === "demo"
+                ? "Demo mode · Export to save."
+                : "Imported project · Export to save changes."}
           </span>
           <span className={dirty ? "dirty" : "save-explanation"}>
-            {dirty
-              ? "Changes not exported."
-              : "Your workspace lives in this tab."}
+            {cloud?.ready
+              ? cloud.saved
+                ? "Saved to cloud."
+                : "Not saved to cloud."
+              : dirty
+                ? "Changes not exported."
+                : "Your workspace lives in this tab."}
           </span>
         </div>
         <nav className="mobile-nav" aria-label="Workspace panels">

@@ -2,14 +2,14 @@ import { applyCommand, type ProjectCommand } from "../domain/commands";
 import { errorMessage, validateProject, type Project } from "../domain/schema";
 export interface ProjectState {
   project: Project;
-  source: "demo" | "import";
+  source: "demo" | "import" | "cloud";
   revision: number;
   exportedRevision: number;
   error: string | null;
 }
 export type Action =
   | { type: "command"; command: ProjectCommand }
-  | { type: "replace"; project: Project; source: "demo" | "import" }
+  | { type: "replace"; project: Project; source: "demo" | "import" | "cloud" }
   | { type: "exported" }
   | { type: "clear-error" };
 export const initialState = (project: Project): ProjectState => ({
