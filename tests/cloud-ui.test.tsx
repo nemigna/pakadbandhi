@@ -126,4 +126,25 @@ describe("cloud workspace", () => {
     ).toBeDisabled();
     expect(screen.getByText("Edit")).toBeEnabled();
   });
+  it("reports a deployment crash without suggesting a local restart", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi
+        .fn()
+        .mockResolvedValue(
+          new Response("FUNCTION_INVOCATION_FAILED", {
+            status: 500,
+            headers: { "Content-Type": "text/plain" },
+          }),
+        ),
+    );
+    setup();
+    expect(
+      await screen.findByText(/Cloud server failed \(HTTP 500\)/),
+    ).toBeInTheDocument();
+    expect(screen.queryByText(/restart npm run dev/)).not.toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Save to cloud" }),
+    ).toBeDisabled();
+  });
 });

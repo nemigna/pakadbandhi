@@ -16,7 +16,9 @@ async function request(init?: RequestInit) {
   });
   if (!response.headers.get("content-type")?.includes("application/json"))
     throw new Error(
-      "Cloud is unavailable here. Export your edits, then restart npm run dev or open the deployed app.",
+      response.status >= 500
+        ? `Cloud server failed (HTTP ${response.status}). Export your edits to keep them. Check the deployment runtime logs.`
+        : "Cloud API is unavailable at this address. Export your edits to keep them. Check that the server includes /api/project.",
     );
   const result = await response.json();
   if (!response.ok)
