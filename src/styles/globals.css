@@ -259,7 +259,10 @@ small {
 }
 .workspace {
   display: grid;
-  grid-template-columns: 266px minmax(0, 1fr) 266px;
+  grid-template-columns: min(
+      var(--shots-width, 266px),
+      var(--pane-limit)
+    ) minmax(0, 1fr) min(var(--people-width, 266px), var(--pane-limit));
   flex: 1;
   min-height: 740px;
 }
@@ -533,6 +536,17 @@ small {
   margin-bottom: 18px;
   gap: 8px;
 }
+.schedule-search {
+  margin-bottom: 18px;
+}
+.schedule-search input {
+  flex: 1;
+}
+.schedule-search-empty {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 0 18px;
+}
 .date-navigation {
   display: flex;
   align-items: center;
@@ -728,10 +742,6 @@ small {
   flex-direction: column;
   position: relative;
   transition: background 0.18s;
-}
-.calendar-grid > .calendar-cell:nth-last-child(-n + 5),
-.calendar-grid > .session-heading:nth-last-child(6) {
-  border-bottom: 0;
 }
 .calendar-cell.target-blocked {
   background: var(--blocked-cell);
@@ -1492,7 +1502,10 @@ small {
     font-size: 15px;
   }
   .workspace {
-    grid-template-columns: 290px minmax(0, 1fr) 290px;
+    grid-template-columns: min(
+        var(--shots-width, 290px),
+        var(--pane-limit)
+      ) minmax(0, 1fr) min(var(--people-width, 290px), var(--pane-limit));
   }
   .shot-shelf,
   .people-panel {
@@ -1518,7 +1531,10 @@ small {
 }
 @media (max-width: 1250px) {
   .workspace {
-    grid-template-columns: 235px minmax(0, 1fr) 235px;
+    grid-template-columns: min(
+        var(--shots-width, 235px),
+        var(--pane-limit)
+      ) minmax(0, 1fr) min(var(--people-width, 235px), var(--pane-limit));
   }
   .shot-shelf,
   .people-panel {
@@ -1553,7 +1569,10 @@ small {
 }
 @media (max-width: 1020px) {
   .workspace {
-    grid-template-columns: 235px minmax(0, 1fr);
+    grid-template-columns: min(
+        var(--shots-width, 235px),
+        var(--pane-limit)
+      ) minmax(0, 1fr);
   }
   .people-panel {
     grid-column: 1 / -1;
@@ -2073,4 +2092,188 @@ small {
 .capacity,
 .target-hint {
   opacity: 1;
+}
+
+/* Keep panes mounted so collapsing preserves their controls and scroll state. */
+.pane-actions,
+.schedule-view-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.schedule-view-controls {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.schedule-view-controls [aria-pressed="true"] {
+  background: var(--hover);
+  color: var(--accent);
+}
+.calendar-grid.density-medium,
+.calendar-grid.density-small {
+  min-width: 0;
+}
+.density-medium .calendar-cell {
+  padding: 7px 5px;
+  min-height: 140px;
+}
+.density-small .calendar-cell {
+  padding: 5px 4px;
+  min-height: 125px;
+}
+.density-medium .compact {
+  padding: 6px;
+}
+.density-small .compact {
+  padding: 5px;
+}
+.density-medium .compact .shot-select h3,
+.density-small .compact .shot-select h3 {
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.density-medium .session-heading,
+.density-small .session-heading {
+  padding: 12px 6px;
+  gap: 5px;
+}
+.density-medium .date-heading,
+.density-small .date-heading {
+  padding: 10px 4px;
+}
+.density-small .date-heading strong {
+  font-size: 20px;
+}
+.density-small .scheduled-stack {
+  gap: 4px;
+}
+.density-small .compact:not(.selected) .card-action,
+.density-medium .compact:not(.selected) .card-action {
+  display: none;
+}
+.density-small .shot-card-bottom {
+  flex-wrap: wrap;
+}
+@media (min-width: 1021px) {
+  .workspace.shots-closed {
+    grid-template-columns: minmax(0, 1fr) min(
+        var(--people-width, 235px),
+        var(--pane-limit)
+      );
+  }
+  .workspace.people-closed {
+    grid-template-columns: min(
+        var(--shots-width, 235px),
+        var(--pane-limit)
+      ) minmax(0, 1fr);
+  }
+}
+@media (min-width: 1251px) {
+  .workspace.shots-closed {
+    grid-template-columns: minmax(0, 1fr) min(
+        var(--people-width, 266px),
+        var(--pane-limit)
+      );
+  }
+  .workspace.people-closed {
+    grid-template-columns: min(
+        var(--shots-width, 266px),
+        var(--pane-limit)
+      ) minmax(0, 1fr);
+  }
+}
+@media (min-width: 1550px) {
+  .workspace.shots-closed {
+    grid-template-columns: minmax(0, 1fr) min(
+        var(--people-width, 290px),
+        var(--pane-limit)
+      );
+  }
+  .workspace.people-closed {
+    grid-template-columns: min(
+        var(--shots-width, 290px),
+        var(--pane-limit)
+      ) minmax(0, 1fr);
+  }
+}
+@media (min-width: 761px) {
+  .workspace.shots-closed > .shot-shelf,
+  .workspace.people-closed > .people-panel {
+    display: none;
+  }
+  .workspace.shots-closed.people-closed {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (min-width: 761px) and (max-width: 1020px) {
+  .workspace.shots-closed {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .pane-toggle,
+  .schedule-view-controls {
+    display: none;
+  }
+}
+
+.availability-grid {
+  overflow-x: auto;
+}
+
+.workspace {
+  --pane-limit: max(235px, calc((100vw - 360px) / 2));
+}
+.shot-shelf,
+.people-panel {
+  position: relative;
+  min-width: 0;
+}
+.pane-resizer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  padding: 0 !important;
+  z-index: 5;
+  cursor: col-resize;
+  touch-action: none;
+  border-radius: 0;
+}
+.pane-resizer-left {
+  right: -5px;
+}
+.pane-resizer-right {
+  left: -5px;
+}
+.pane-resizer::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 3px;
+  width: 4px;
+  height: 36px;
+  border-radius: 2px;
+  background: var(--border);
+}
+.pane-resizer:hover::after,
+.pane-resizer:focus-visible::after {
+  background: var(--accent);
+}
+@media (min-width: 761px) and (max-width: 1020px) {
+  .workspace {
+    --pane-limit: calc(100vw - 360px);
+  }
+  .pane-resizer-right {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .pane-resizer {
+    display: none;
+  }
 }

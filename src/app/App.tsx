@@ -1,4 +1,10 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 import { DragDropProvider } from "@dnd-kit/react";
 import {
   Clapperboard,
@@ -22,6 +28,7 @@ import {
   CheckCheck,
   Users,
   LayoutList,
+  PanelLeftClose,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
@@ -43,6 +50,7 @@ import {
   getRequiredPeople,
 } from "@/domain/scheduling";
 import { Board, Legend, ShelfDrop, ShotCard } from "@/features/board";
+import { PaneResizer } from "@/features/pane-resizer";
 import { PeoplePanel } from "@/features/people-panel";
 import {
   AvailabilityEditor,
@@ -67,14 +75,27 @@ export function App() {
   const { project } = state;
   const { commit, dispatch } = useCommands();
   const { theme, setTheme } = useTheme();
-  const [selected, setSelected] = useState<string | null>(
-    () => project.shots[0]?.id ?? null,
-  );
+  const [selected, setSelected] = useState<string | null>(null);
   const [selectedPerson, setSelectedPerson] = useState<string | null>(
     () => project.people[0]?.id ?? null,
   );
   const [windowStart, setWindowStart] = useState(() => project.startDate);
+  const [shotsOpen, setShotsOpen] = useState(true);
+  const [peopleOpen, setPeopleOpen] = useState(true);
+  const [shotsWidth, setShotsWidth] = useState<number>();
+  const [peopleWidth, setPeopleWidth] = useState<number>();
+  const schedulePanel = useRef<HTMLElement>(null);
+  const [calendarWidth, setCalendarWidth] = useState<number>();
+  useEffect(() => {
+    const observer = new ResizeObserver(([entry]) => {
+      setCalendarWidth(entry.contentRect.width);
+    });
+    if (schedulePanel.current) observer.observe(schedulePanel.current);
+    return () => observer.disconnect();
+  }, []);
+  const [viewDays, setViewDays] = useState<5 | 7 | 9>(5);
   const [search, setSearch] = useState("");
+  const [scheduleSearch, setScheduleSearch] = useState("");
   const [modal, setModal] = useState<Modal>(null);
   const [notice, setNotice] = useState("");
   const [dragging, setDragging] = useState(false);
@@ -94,6 +115,16 @@ export function App() {
       : windowStart > project.endDate
         ? project.endDate
         : windowStart;
+  const dayWidth = viewDays === 5 ? 142 : viewDays === 7 ? 126 : 112;
+  const sessionWidth = viewDays === 5 ? 94 : viewDays === 7 ? 82 : 74;
+  const displayedDays = narrow
+    ? 1
+    : ([9, 7, 5].find(
+        (days) =>
+          days <= viewDays &&
+          (calendarWidth === undefined ||
+            sessionWidth + dayWidth * days + 2 <= calendarWidth),
+      ) ?? 5);
   const dates = datesBetween(
     currentDate,
     addDays(
@@ -101,7 +132,7 @@ export function App() {
       narrow
         ? 0
         : Math.min(
-            4,
+            displayedDays - 1,
             Math.round(
               (Date.parse(project.endDate) - Date.parse(currentDate)) /
                 86400000,
@@ -132,6 +163,31 @@ export function App() {
       .join(" ")
       .toLowerCase()
       .includes(search.toLowerCase()),
+  );
+  const scheduleShotIds = useMemo(() => {
+    const query = scheduleSearch.trim().toLowerCase();
+    if (!query) return undefined;
+    return new Set(
+      project.shots
+        .filter((shot) =>
+          [
+            shot.code,
+            shot.title,
+            shot.sceneLabel,
+            shot.locationLabel,
+            ...getRequiredPeople(project, shot).map((person) => person.name),
+          ]
+            .join(" ")
+            .toLowerCase()
+            .includes(query),
+        )
+        .map((shot) => shot.id),
+    );
+  }, [project, scheduleSearch]);
+  const scheduleHasMatches = project.assignments.some(
+    (assignment) =>
+      dates.includes(assignment.date) &&
+      (!scheduleShotIds || scheduleShotIds.has(assignment.shotId)),
   );
   useEffect(() => {
     const media = matchMedia("(max-width: 760px)");
@@ -216,6 +272,7 @@ export function App() {
     setSelectedPerson(next.people[0]?.id ?? null);
     setWindowStart(next.startDate);
     setSearch("");
+    setScheduleSearch("");
     setShelfFilter("unscheduled");
     setModal(null);
     notify(
@@ -395,8 +452,17 @@ export function App() {
             </button>
           ))}
         </nav>
-        <div className={`workspace mobile-${mobileTab}`}>
+        <div
+          style={
+            {
+              "--shots-width": shotsWidth ? `${shotsWidth}px` : undefined,
+              "--people-width": peopleWidth ? `${peopleWidth}px` : undefined,
+            } as CSSProperties
+          }
+          className={`workspace mobile-${mobileTab} ${shotsOpen ? "" : "shots-closed"} ${peopleOpen ? "" : "people-closed"} view-${viewDays}`}
+        >
           <aside className="shot-shelf">
+            <PaneResizer side="left" onResize={setShotsWidth} />
             <div className="panel-heading">
               <div>
                 <h2>
@@ -405,14 +471,25 @@ export function App() {
                 </h2>
                 <p>Ready to find their place</p>
               </div>
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Create new shot"
-                onClick={() => setModal({ type: "shot" })}
-              >
-                <Plus size={19} />
-              </Button>
+              <div className="pane-actions">
+                <Button
+                  className="pane-toggle"
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Hide shots pane"
+                  onClick={() => setShotsOpen(false)}
+                >
+                  <PanelLeftClose size={17} />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Create new shot"
+                  onClick={() => setModal({ type: "shot" })}
+                >
+                  <Plus size={19} />
+                </Button>
+              </div>
             </div>
             <div className="search-field">
               <Search size={15} />
@@ -484,7 +561,7 @@ export function App() {
               </p>
             </div>
           </aside>
-          <main className="schedule-panel">
+          <main ref={schedulePanel} className="schedule-panel">
             <div className="schedule-heading">
               <div>
                 <div className="eyebrow">PRODUCTION WORKSPACE</div>
@@ -499,6 +576,69 @@ export function App() {
                 <Settings2 size={19} />
               </Button>
             </div>
+            <div className="schedule-view-controls">
+              <div className="pane-actions pane-toggle">
+                <Button
+                  variant="ghost"
+                  aria-pressed={shotsOpen}
+                  onClick={() => setShotsOpen((open) => !open)}
+                >
+                  Shots
+                </Button>
+                <Button
+                  variant="ghost"
+                  aria-pressed={peopleOpen}
+                  onClick={() => setPeopleOpen((open) => !open)}
+                >
+                  Availability
+                </Button>
+              </div>
+              <DropdownMenu
+                trigger={
+                  <Button variant="secondary" aria-label="Change schedule view">
+                    View:{" "}
+                    {viewDays === 5
+                      ? "Big"
+                      : viewDays === 7
+                        ? "Medium"
+                        : "Small"}{" "}
+                    ·{" "}
+                    {displayedDays < viewDays
+                      ? `${displayedDays} of ${viewDays}`
+                      : viewDays}{" "}
+                    days <ChevronDown size={14} />
+                  </Button>
+                }
+                items={([5, 7, 9] as const).map((days) => ({
+                  label: `${days === 5 ? "Big" : days === 7 ? "Medium" : "Small"} · ${days} days`,
+                  checked: viewDays === days,
+                  action: () => setViewDays(days),
+                }))}
+              />
+            </div>
+            <div className="search-field schedule-search">
+              <Search size={15} />
+              <input
+                type="search"
+                aria-label="Search shooting schedule"
+                placeholder="Search scheduled shots, people, locations…"
+                value={scheduleSearch}
+                onChange={(event) => setScheduleSearch(event.target.value)}
+              />
+              {scheduleSearch && (
+                <button
+                  aria-label="Clear schedule search"
+                  onClick={() => setScheduleSearch("")}
+                >
+                  <X size={13} />
+                </button>
+              )}
+            </div>
+            {scheduleShotIds && !scheduleHasMatches && (
+              <p className="schedule-search-empty" role="status">
+                No scheduled shots match this search in the displayed dates.
+              </p>
+            )}
             <div className="schedule-toolbar">
               <div className="date-navigation">
                 <Button
@@ -506,7 +646,7 @@ export function App() {
                   variant="ghost"
                   aria-label="Previous dates"
                   disabled={currentDate <= project.startDate}
-                  onClick={() => nav(narrow ? -1 : -5)}
+                  onClick={() => nav(-displayedDays)}
                 >
                   <ChevronLeft size={16} />
                 </Button>
@@ -521,7 +661,7 @@ export function App() {
                   variant="ghost"
                   aria-label="Next dates"
                   disabled={dates[dates.length - 1] >= project.endDate}
-                  onClick={() => nav(narrow ? 1 : 5)}
+                  onClick={() => nav(displayedDays)}
                 >
                   <ChevronRight size={16} />
                 </Button>
@@ -573,6 +713,10 @@ export function App() {
             </div>
             <Board
               dates={dates}
+              visibleShotIds={scheduleShotIds}
+              density={
+                viewDays === 5 ? "big" : viewDays === 7 ? "medium" : "small"
+              }
               selectedId={selectedId}
               dragging={dragging}
               onSelect={selectShot}
@@ -610,6 +754,10 @@ export function App() {
             </footer>
           </main>
           <PeoplePanel
+            resizeHandle={
+              <PaneResizer side="right" onResize={setPeopleWidth} />
+            }
+            onClose={() => setPeopleOpen(false)}
             dates={dates}
             selectedPerson={selectedPerson}
             onSelectPerson={setSelectedPerson}

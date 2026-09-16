@@ -1,6 +1,7 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useRef, useState, type ReactNode } from "react";
 import {
   Plus,
+  PanelRightClose,
   Pencil,
   Check,
   Minus,
@@ -14,6 +15,8 @@ import { getAvailability } from "@/domain/scheduling";
 import { dateLabel } from "@/domain/dates";
 import { Button } from "@/components/ui/button";
 export function PeoplePanel({
+  resizeHandle,
+  onClose,
   dates,
   selectedPerson,
   onSelectPerson,
@@ -21,6 +24,8 @@ export function PeoplePanel({
   onAvailability,
   notify,
 }: {
+  resizeHandle?: ReactNode;
+  onClose: () => void;
   dates: string[];
   selectedPerson: string | null;
   onSelectPerson: (id: string) => void;
@@ -58,19 +63,31 @@ export function PeoplePanel({
   };
   return (
     <aside className="people-panel">
+      {resizeHandle}
       <div className="panel-heading">
         <div>
           <h2>Cast & crew</h2>
           <p>People behind the picture</p>
         </div>
-        <Button
-          size="icon"
-          variant="ghost"
-          aria-label="Add person"
-          onClick={() => onEditPerson()}
-        >
-          <Plus size={18} />
-        </Button>
+        <div className="pane-actions">
+          <Button
+            className="pane-toggle"
+            size="icon"
+            variant="ghost"
+            aria-label="Hide availability pane"
+            onClick={onClose}
+          >
+            <PanelRightClose size={17} />
+          </Button>
+          <Button
+            size="icon"
+            variant="ghost"
+            aria-label="Add person"
+            onClick={() => onEditPerson()}
+          >
+            <Plus size={18} />
+          </Button>
+        </div>
       </div>
       <Tabs.Root defaultValue="all">
         <Tabs.List className="people-tabs" aria-label="People categories">
@@ -188,7 +205,9 @@ export function PeoplePanel({
           </div>
           <div
             className="availability-grid"
-            style={{ gridTemplateColumns: `50px repeat(${dates.length}, 1fr)` }}
+            style={{
+              gridTemplateColumns: `50px repeat(${dates.length}, minmax(24px, 1fr))`,
+            }}
             onPointerUp={() => {
               painting.current = false;
             }}

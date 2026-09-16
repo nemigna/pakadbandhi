@@ -83,7 +83,7 @@ export function ShotCard({
         aria-label={`Select ${shot.code} ${shot.title}`}
         onClick={onSelect}
       >
-        <h3>{shot.title}</h3>
+        <h3 title={shot.title}>{shot.title}</h3>
       </button>
       <div className="shot-location">
         <MapPin size={12} />
@@ -198,6 +198,7 @@ function InsertTarget({
 }
 function CalendarCell({
   date,
+  visibleShotIds,
   sessionId,
   selectedId,
   dragging,
@@ -207,6 +208,7 @@ function CalendarCell({
   onPlace,
 }: {
   date: string;
+  visibleShotIds?: ReadonlySet<string>;
   sessionId: SessionId;
   selectedId: string | null;
   dragging: boolean;
@@ -278,6 +280,7 @@ function CalendarCell({
           const timing = actual.timings.find((t) => t.shotId === a.shotId);
           const currentIndex = insertIndex;
           if (a.shotId !== selectedId) insertIndex++;
+          if (visibleShotIds && !visibleShotIds.has(a.shotId)) return null;
           return (
             <Fragment key={a.shotId}>
               {selectedId && a.shotId !== selectedId && (
@@ -334,7 +337,9 @@ function CalendarCell({
   );
 }
 export function Board({
+  density = "big",
   dates,
+  visibleShotIds,
   selectedId,
   dragging,
   onSelect,
@@ -342,7 +347,9 @@ export function Board({
   onSchedule,
   onPlace,
 }: {
+  density?: "big" | "medium" | "small";
   dates: string[];
+  visibleShotIds?: ReadonlySet<string>;
   selectedId: string | null;
   dragging: boolean;
   onSelect: (id: string) => void;
@@ -360,9 +367,9 @@ export function Board({
   return (
     <div className="calendar-scroll">
       <div
-        className="calendar-grid"
+        className={`calendar-grid density-${density}`}
         style={{
-          gridTemplateColumns: `94px repeat(${dates.length}, minmax(142px, 1fr))`,
+          gridTemplateColumns: `${density === "big" ? 94 : density === "medium" ? 82 : 74}px repeat(${dates.length}, minmax(${density === "big" ? 142 : density === "medium" ? 126 : 112}px, 1fr))`,
         }}
       >
         <div className="calendar-corner">SESSION</div>
@@ -395,6 +402,7 @@ export function Board({
                 <CalendarCell
                   key={`${date}/${s.id}`}
                   date={date}
+                  visibleShotIds={visibleShotIds}
                   sessionId={s.id}
                   selectedId={selectedId}
                   dragging={dragging}
