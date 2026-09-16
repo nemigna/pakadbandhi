@@ -1,7 +1,7 @@
 {
   "format": "pakadbandi-project",
   "schemaVersion": 1,
-  "exportedAt": "2026-09-15T17:47:40.510Z",
+  "exportedAt": "2026-09-16T04:56:19.653Z",
   "project": {
     "id": "the-way-home-demo",
     "title": "Yachacha Gachacha",
@@ -1886,30 +1886,124 @@
         "sessionId": "night",
         "status": "available",
         "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-20",
+        "sessionId": "afternoon",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-20",
+        "sessionId": "evening",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "asha",
+        "date": "2026-09-20",
+        "sessionId": "night",
+        "status": "unavailable",
+        "note": ""
+      },
+      {
+        "personId": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "date": "2026-09-20",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "date": "2026-09-20",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "date": "2026-09-20",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "date": "2026-09-26",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "date": "2026-09-26",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "date": "2026-09-26",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "date": "2026-09-26",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "date": "2026-09-27",
+        "sessionId": "morning",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "date": "2026-09-27",
+        "sessionId": "afternoon",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "date": "2026-09-27",
+        "sessionId": "evening",
+        "status": "available",
+        "note": ""
+      },
+      {
+        "personId": "807127e4-f640-4c49-bbe7-3966084123a3",
+        "date": "2026-09-27",
+        "sessionId": "night",
+        "status": "available",
+        "note": ""
       }
     ],
     "assignments": [
       {
-        "shotId": "dc9919b8-f66f-4d22-b7c4-2ae5b1d2815a",
-        "date": "2026-09-20",
-        "sessionId": "evening",
-        "order": 0
-      },
-      {
         "shotId": "shot-014",
         "date": "2026-09-21",
-        "sessionId": "morning",
-        "order": 0
-      },
-      {
-        "shotId": "bccd0d11-aa26-4557-a9ee-07f27ac7d114",
-        "date": "2026-09-20",
-        "sessionId": "morning",
-        "order": 0
-      },
-      {
-        "shotId": "shot-012",
-        "date": "2026-09-19",
         "sessionId": "morning",
         "order": 0
       },
@@ -1932,12 +2026,6 @@
         "order": 0
       },
       {
-        "shotId": "45451fd8-b83a-4d56-bca1-7afd4d9e39d9",
-        "date": "2026-09-20",
-        "sessionId": "afternoon",
-        "order": 0
-      },
-      {
         "shotId": "689ee47a-d94d-45f5-8c1d-156a169745ab",
         "date": "2026-09-21",
         "sessionId": "evening",
@@ -1947,12 +2035,6 @@
         "shotId": "ca905f72-69f8-4d97-bd25-f0d9c0ef500c",
         "date": "2026-09-24",
         "sessionId": "night",
-        "order": 0
-      },
-      {
-        "shotId": "shot-021",
-        "date": "2026-09-19",
-        "sessionId": "evening",
         "order": 0
       },
       {
@@ -1986,6 +2068,36 @@
         "order": 0
       },
       {
+        "shotId": "4050988e-0f5a-4882-b9f5-06158ed68309",
+        "date": "2026-09-27",
+        "sessionId": "evening",
+        "order": 0
+      },
+      {
+        "shotId": "b6ec0332-53db-4d57-aa96-f33768112f54",
+        "date": "2026-09-27",
+        "sessionId": "night",
+        "order": 0
+      },
+      {
+        "shotId": "shot-012",
+        "date": "2026-09-20",
+        "sessionId": "morning",
+        "order": 0
+      },
+      {
+        "shotId": "bccd0d11-aa26-4557-a9ee-07f27ac7d114",
+        "date": "2026-09-19",
+        "sessionId": "morning",
+        "order": 0
+      },
+      {
+        "shotId": "45451fd8-b83a-4d56-bca1-7afd4d9e39d9",
+        "date": "2026-09-19",
+        "sessionId": "afternoon",
+        "order": 0
+      },
+      {
         "shotId": "3f119132-4780-490c-82b6-ee8ab26c3d14",
         "date": "2026-09-24",
         "sessionId": "afternoon",
@@ -1995,12 +2107,6 @@
         "shotId": "43682c99-38b7-4fbb-90a0-750810adb79b",
         "date": "2026-09-26",
         "sessionId": "morning",
-        "order": 1
-      },
-      {
-        "shotId": "e95f3b29-7ca2-439c-a873-588555392cd3",
-        "date": "2026-09-19",
-        "sessionId": "evening",
         "order": 1
       },
       {
@@ -2034,10 +2140,22 @@
         "order": 1
       },
       {
-        "shotId": "4050988e-0f5a-4882-b9f5-06158ed68309",
+        "shotId": "72155ea6-7941-4590-a69f-0af6584c7af2",
         "date": "2026-09-27",
         "sessionId": "evening",
+        "order": 1
+      },
+      {
+        "shotId": "e95f3b29-7ca2-439c-a873-588555392cd3",
+        "date": "2026-09-19",
+        "sessionId": "evening",
         "order": 0
+      },
+      {
+        "shotId": "dc9919b8-f66f-4d22-b7c4-2ae5b1d2815a",
+        "date": "2026-09-19",
+        "sessionId": "afternoon",
+        "order": 1
       },
       {
         "shotId": "ac9cda3b-ba5a-4d54-b8df-8c0d20371e07",
@@ -2046,21 +2164,15 @@
         "order": 2
       },
       {
-        "shotId": "72155ea6-7941-4590-a69f-0af6584c7af2",
-        "date": "2026-09-27",
-        "sessionId": "evening",
-        "order": 1
-      },
-      {
         "shotId": "272f0c67-645b-4bd9-a283-c827806d1a8e",
         "date": "2026-09-26",
         "sessionId": "night",
         "order": 3
       },
       {
-        "shotId": "b6ec0332-53db-4d57-aa96-f33768112f54",
-        "date": "2026-09-27",
-        "sessionId": "night",
+        "shotId": "shot-021",
+        "date": "2026-09-20",
+        "sessionId": "evening",
         "order": 0
       }
     ]

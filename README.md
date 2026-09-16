@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open http://127.0.0.1:5173. The bundled demo is the supplied final export of “Yachacha Gachacha”: 29 shots, 12 people, 177 availability overrides, and all 29 shots scheduled. Its shooting range is September 19–27, 2026; the calendar opens on September 19 with SH 01 selected. Fresh visits and Reset demo load this snapshot from `src/data/demo-project.v1.json`.
+Open http://127.0.0.1:5173. The bundled demo is the supplied super final export of “Yachacha Gachacha”: 29 shots, 12 people, 193 availability overrides, and all 29 shots scheduled. Its shooting range is September 19–27, 2026; the calendar opens on September 19 with no shot selected. Fresh visits and Reset demo load this snapshot from `src/data/demo-project.v1.json`.
 
 ```sh
 npm run typecheck
