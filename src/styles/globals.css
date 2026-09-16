@@ -2277,3 +2277,12 @@ small {
     display: none;
   }
 }
+
+.cloud-loading {
+  padding: 3rem;
+  text-align: center;
+}
+.save-strip > span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
