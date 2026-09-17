@@ -36,6 +36,7 @@ const shot = (
   sceneLabel: "",
   description: "",
   locationLabel: "",
+  propIds: [],
   requiredPersonIds: [],
   estimatedMinutes: minutes,
   lighting,
@@ -342,7 +343,7 @@ describe("Commands and file invariants", () => {
       /5 MiB/,
     );
     const envelope = JSON.parse(serializeProject(createDemoProject()));
-    envelope.schemaVersion = 2;
+    envelope.schemaVersion = 99;
     expect(() => parseProjectFile(JSON.stringify(envelope))).toThrow();
     const p = createDemoProject();
     p.shots[0].description = "é".repeat(MAX_FILE_BYTES);

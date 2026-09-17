@@ -38,6 +38,7 @@ export function ShotEditor({
           description: "",
           locationLabel: "",
           requiredPersonIds: [],
+          propIds: [],
           estimatedMinutes: 60,
           lighting: "anytime",
           color: "yellow",
@@ -169,6 +170,31 @@ export function ShotEditor({
               .map((p) => p.name)
               .join(", ") || "None"}
           </p>
+        </fieldset>
+        <fieldset>
+          <legend>Props</legend>
+          <div className="check-grid">
+            {project.props.map((prop) => (
+              <Checkbox
+                key={prop.id}
+                label={prop.name}
+                checked={draft.propIds.includes(prop.id)}
+                onCheckedChange={(checked) =>
+                  set(
+                    "propIds",
+                    checked
+                      ? [...draft.propIds, prop.id]
+                      : draft.propIds.filter((id) => id !== prop.id),
+                  )
+                }
+              />
+            ))}
+          </div>
+          {!project.props.length && (
+            <p className="field-hint">
+              Create props from the Props tab, then tag them here.
+            </p>
+          )}
         </fieldset>
         <Field label="Shot color">
           <select

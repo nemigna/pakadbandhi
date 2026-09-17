@@ -28,6 +28,7 @@ export function makeProject(
     estimatedMinutes: 20,
     lighting: "anytime",
     color: "sage",
+    propIds: [],
     requiredPersonIds: Array.from(
       { length: 6 },
       (_, j) => `person-${(i + j) % peopleCount}`,

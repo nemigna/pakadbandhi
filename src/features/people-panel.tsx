@@ -62,7 +62,7 @@ export function PeoplePanel({
     }
   };
   return (
-    <aside className="people-panel">
+    <aside id="cast-crew" className="people-panel">
       {resizeHandle}
       <div className="panel-heading">
         <div>

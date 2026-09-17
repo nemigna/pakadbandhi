@@ -102,6 +102,23 @@ export async function handleProject(
     let input;
     try {
       input = saveSchema.parse(JSON.parse(text));
+      // Imports/reads accept legacy JSON; writes require the complete current shape.
+      // This blocks old tabs before defaults could silently erase prop data.
+      const shape = z
+        .object({
+          props: z.array(z.unknown()),
+          shots: z.array(z.object({ propIds: z.array(z.string()) })),
+        })
+        .safeParse(input.project);
+      if (
+        !shape.success &&
+        z.object({ shots: z.array(z.unknown()) }).safeParse(input.project)
+          .success
+      )
+        return respond(409, {
+          error:
+            "This app version cannot safely save props. Export your edits, then reload the app and reapply your edits to the latest project. Nothing was saved.",
+        });
       input.project = validateProject(input.project);
     } catch {
       return respond(400, {

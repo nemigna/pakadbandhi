@@ -51,6 +51,7 @@ import {
 } from "@/domain/scheduling";
 import { Board, Legend, ShelfDrop, ShotCard } from "@/features/board";
 import { PaneResizer } from "@/features/pane-resizer";
+import { PropsPage } from "@/features/props-page";
 import { PeoplePanel } from "@/features/people-panel";
 import {
   AvailabilityEditor,
@@ -77,6 +78,7 @@ export function App() {
   const { project } = state;
   const { commit, dispatch } = useCommands();
   const { theme, setTheme } = useTheme();
+  const [page, setPage] = useState<"planner" | "props">("planner");
   const [selected, setSelected] = useState<string | null>(null);
   const [selectedPerson, setSelectedPerson] = useState<string | null>(
     () => project.people[0]?.id ?? null,
@@ -449,337 +451,380 @@ export function App() {
                 : "Your workspace lives in this tab."}
           </span>
         </div>
-        <nav className="mobile-nav" aria-label="Workspace panels">
-          {[
-            { id: "shots", title: "Shots", Icon: LayoutList },
-            { id: "schedule", title: "Schedule", Icon: CalendarDays },
-            { id: "people", title: "People", Icon: Users },
-          ].map(({ id, title, Icon }) => (
-            <button
-              key={id}
-              onClick={() => setMobileTab(id)}
-              aria-current={mobileTab === id ? "page" : undefined}
+        <nav className="page-nav" aria-label="App pages">
+          <button
+            aria-current={page === "planner" ? "page" : undefined}
+            onClick={() => setPage("planner")}
+          >
+            Planner
+          </button>
+          <button
+            aria-current={page === "props" ? "page" : undefined}
+            onClick={() => setPage("props")}
+          >
+            Props
+          </button>
+          {page === "planner" && (
+            <div
+              className="pane-visibility"
+              role="group"
+              aria-label="Planner panes"
             >
-              <Icon size={16} />
-              {title}
-            </button>
-          ))}
-        </nav>
-        <div
-          style={
-            {
-              "--shots-width": shotsWidth ? `${shotsWidth}px` : undefined,
-              "--people-width": peopleWidth ? `${peopleWidth}px` : undefined,
-            } as CSSProperties
-          }
-          className={`workspace mobile-${mobileTab} ${shotsOpen ? "" : "shots-closed"} ${peopleOpen ? "" : "people-closed"} view-${viewDays}`}
-        >
-          <aside className="shot-shelf">
-            <PaneResizer side="left" onResize={setShotsWidth} />
-            <div className="panel-heading">
-              <div>
-                <h2>
-                  Shot shelf{" "}
-                  <span className="count-badge">{unscheduled.length}</span>
-                </h2>
-                <p>Ready to find their place</p>
-              </div>
-              <div className="pane-actions">
-                <Button
-                  className="pane-toggle"
-                  variant="ghost"
-                  size="icon"
-                  aria-label="Hide shots pane"
-                  onClick={() => setShotsOpen(false)}
-                >
-                  <PanelLeftClose size={17} />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  aria-label="Create new shot"
-                  onClick={() => setModal({ type: "shot" })}
-                >
-                  <Plus size={19} />
-                </Button>
-              </div>
-            </div>
-            <div className="search-field">
-              <Search size={15} />
-              <input
-                aria-label="Search shots"
-                placeholder="Search shots, people, locations…"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              {search && (
-                <button aria-label="Clear search" onClick={() => setSearch("")}>
-                  <X size={13} />
-                </button>
-              )}
-            </div>
-            <div className="shelf-filter">
-              <select
-                aria-label="Shot shelf filter"
-                value={shelfFilter}
-                onChange={(e) =>
-                  setShelfFilter(e.target.value as typeof shelfFilter)
-                }
-              >
-                <option value="unscheduled">Unscheduled shots</option>
-                <option value="all">All shots</option>
-              </select>
-              <span>{visibleShots.length}</span>
-            </div>
-            <ShelfDrop
-              active={
-                !!project.assignments.find((a) => a.shotId === selectedId)
-              }
-              onUnschedule={() => unschedule()}
-            >
-              <div className="shot-list">
-                {visibleShots.map((shot) => (
-                  <ShotCard
-                    key={shot.id}
-                    shot={shot}
-                    selected={shot.id === selectedId}
-                    onSelect={() => selectShot(shot.id)}
-                    onEdit={() => setModal({ type: "shot", shot })}
-                    onSchedule={() => schedule(shot.id)}
-                    issues={issues.filter((i) => i.shotId === shot.id)}
-                  />
-                ))}
-                {!visibleShots.length && (
-                  <div className="empty-copy">
-                    {search
-                      ? "No shots match this search."
-                      : "Every shot has a place. Add another shot when you’re ready."}
-                  </div>
-                )}
-              </div>
-            </ShelfDrop>
-            <Button
-              className="add-shot"
-              onClick={() => setModal({ type: "shot" })}
-            >
-              <Plus size={16} />
-              New shot
-            </Button>
-            <div className="shelf-help">
-              <CircleHelp size={15} />
-              <p>
-                Select a shot to see where it fits.
-                <br />
-                Drag it, or use <strong>Schedule shot</strong>.
-              </p>
-            </div>
-          </aside>
-          <main ref={schedulePanel} className="schedule-panel">
-            <div className="schedule-heading">
-              <div>
-                <div className="eyebrow">PRODUCTION WORKSPACE</div>
-                <h1>Shooting schedule</h1>
-              </div>
               <Button
                 variant="ghost"
-                size="icon"
-                aria-label="Project settings"
-                onClick={() => setModal({ type: "settings" })}
+                aria-expanded={shotsOpen}
+                aria-controls="shot-shelf"
+                onClick={() => setShotsOpen((open) => !open)}
               >
-                <Settings2 size={19} />
+                <LayoutList size={16} />
+                {shotsOpen ? "Hide shot shelf" : "Show shot shelf"}
+              </Button>
+              <Button
+                variant="ghost"
+                aria-expanded={peopleOpen}
+                aria-controls="cast-crew"
+                onClick={() => setPeopleOpen((open) => !open)}
+              >
+                <Users size={16} />
+                {peopleOpen ? "Hide cast & crew" : "Show cast & crew"}
               </Button>
             </div>
-            <div className="schedule-view-controls">
-              <div className="pane-actions pane-toggle">
+          )}
+        </nav>
+        {page === "props" && (
+          <PropsPage
+            key={project.id}
+            onEditShot={(shot) => setModal({ type: "shot", shot })}
+          />
+        )}
+        <div className="planner-page" hidden={page !== "planner"}>
+          <nav className="mobile-nav" aria-label="Workspace panels">
+            {[
+              { id: "shots", title: "Shots", Icon: LayoutList },
+              { id: "schedule", title: "Schedule", Icon: CalendarDays },
+              { id: "people", title: "People", Icon: Users },
+            ].map(({ id, title, Icon }) => (
+              <button
+                key={id}
+                onClick={() => setMobileTab(id)}
+                aria-current={mobileTab === id ? "page" : undefined}
+              >
+                <Icon size={16} />
+                {title}
+              </button>
+            ))}
+          </nav>
+          <div
+            style={
+              {
+                "--shots-width": shotsWidth ? `${shotsWidth}px` : undefined,
+                "--people-width": peopleWidth ? `${peopleWidth}px` : undefined,
+              } as CSSProperties
+            }
+            className={`workspace mobile-${mobileTab} ${shotsOpen ? "" : "shots-closed"} ${peopleOpen ? "" : "people-closed"} view-${viewDays}`}
+          >
+            <aside id="shot-shelf" className="shot-shelf">
+              <PaneResizer side="left" onResize={setShotsWidth} />
+              <div className="panel-heading">
+                <div>
+                  <h2>
+                    Shot shelf{" "}
+                    <span className="count-badge">{unscheduled.length}</span>
+                  </h2>
+                  <p>Ready to find their place</p>
+                </div>
+                <div className="pane-actions">
+                  <Button
+                    className="pane-toggle"
+                    variant="ghost"
+                    size="icon"
+                    aria-label="Hide shots pane"
+                    onClick={() => setShotsOpen(false)}
+                  >
+                    <PanelLeftClose size={17} />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    aria-label="Create new shot"
+                    onClick={() => setModal({ type: "shot" })}
+                  >
+                    <Plus size={19} />
+                  </Button>
+                </div>
+              </div>
+              <div className="search-field">
+                <Search size={15} />
+                <input
+                  aria-label="Search shots"
+                  placeholder="Search shots, people, locations…"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                {search && (
+                  <button
+                    aria-label="Clear search"
+                    onClick={() => setSearch("")}
+                  >
+                    <X size={13} />
+                  </button>
+                )}
+              </div>
+              <div className="shelf-filter">
+                <select
+                  aria-label="Shot shelf filter"
+                  value={shelfFilter}
+                  onChange={(e) =>
+                    setShelfFilter(e.target.value as typeof shelfFilter)
+                  }
+                >
+                  <option value="unscheduled">Unscheduled shots</option>
+                  <option value="all">All shots</option>
+                </select>
+                <span>{visibleShots.length}</span>
+              </div>
+              <ShelfDrop
+                active={
+                  !!project.assignments.find((a) => a.shotId === selectedId)
+                }
+                onUnschedule={() => unschedule()}
+              >
+                <div className="shot-list">
+                  {visibleShots.map((shot) => (
+                    <ShotCard
+                      key={shot.id}
+                      shot={shot}
+                      selected={shot.id === selectedId}
+                      onSelect={() => selectShot(shot.id)}
+                      onEdit={() => setModal({ type: "shot", shot })}
+                      onSchedule={() => schedule(shot.id)}
+                      issues={issues.filter((i) => i.shotId === shot.id)}
+                    />
+                  ))}
+                  {!visibleShots.length && (
+                    <div className="empty-copy">
+                      {search
+                        ? "No shots match this search."
+                        : "Every shot has a place. Add another shot when you’re ready."}
+                    </div>
+                  )}
+                </div>
+              </ShelfDrop>
+              <Button
+                className="add-shot"
+                onClick={() => setModal({ type: "shot" })}
+              >
+                <Plus size={16} />
+                New shot
+              </Button>
+              <div className="shelf-help">
+                <CircleHelp size={15} />
+                <p>
+                  Select a shot to see where it fits.
+                  <br />
+                  Drag it, or use <strong>Schedule shot</strong>.
+                </p>
+              </div>
+            </aside>
+            <main ref={schedulePanel} className="schedule-panel">
+              <div className="schedule-heading">
+                <div>
+                  <div className="eyebrow">PRODUCTION WORKSPACE</div>
+                  <h1>Shooting schedule</h1>
+                </div>
                 <Button
                   variant="ghost"
-                  aria-pressed={shotsOpen}
-                  onClick={() => setShotsOpen((open) => !open)}
+                  size="icon"
+                  aria-label="Project settings"
+                  onClick={() => setModal({ type: "settings" })}
                 >
-                  Shots
-                </Button>
-                <Button
-                  variant="ghost"
-                  aria-pressed={peopleOpen}
-                  onClick={() => setPeopleOpen((open) => !open)}
-                >
-                  Availability
+                  <Settings2 size={19} />
                 </Button>
               </div>
-              <DropdownMenu
-                trigger={
-                  <Button variant="secondary" aria-label="Change schedule view">
-                    View:{" "}
-                    {viewDays === 5
-                      ? "Big"
-                      : viewDays === 7
-                        ? "Medium"
-                        : "Small"}{" "}
-                    ·{" "}
-                    {displayedDays < viewDays
-                      ? `${displayedDays} of ${viewDays}`
-                      : viewDays}{" "}
-                    days <ChevronDown size={14} />
-                  </Button>
-                }
-                items={([5, 7, 9] as const).map((days) => ({
-                  label: `${days === 5 ? "Big" : days === 7 ? "Medium" : "Small"} · ${days} days`,
-                  checked: viewDays === days,
-                  action: () => setViewDays(days),
-                }))}
-              />
-            </div>
-            <div className="search-field schedule-search">
-              <Search size={15} />
-              <input
-                type="search"
-                aria-label="Search shooting schedule"
-                placeholder="Search scheduled shots, people, locations…"
-                value={scheduleSearch}
-                onChange={(event) => setScheduleSearch(event.target.value)}
-              />
-              {scheduleSearch && (
-                <button
-                  aria-label="Clear schedule search"
-                  onClick={() => setScheduleSearch("")}
-                >
-                  <X size={13} />
-                </button>
+              <div className="schedule-view-controls">
+                <DropdownMenu
+                  trigger={
+                    <Button
+                      variant="secondary"
+                      aria-label="Change schedule view"
+                    >
+                      View:{" "}
+                      {viewDays === 5
+                        ? "Big"
+                        : viewDays === 7
+                          ? "Medium"
+                          : "Small"}{" "}
+                      ·{" "}
+                      {displayedDays < viewDays
+                        ? `${displayedDays} of ${viewDays}`
+                        : viewDays}{" "}
+                      days <ChevronDown size={14} />
+                    </Button>
+                  }
+                  items={([5, 7, 9] as const).map((days) => ({
+                    label: `${days === 5 ? "Big" : days === 7 ? "Medium" : "Small"} · ${days} days`,
+                    checked: viewDays === days,
+                    action: () => setViewDays(days),
+                  }))}
+                />
+              </div>
+              <div className="search-field schedule-search">
+                <Search size={15} />
+                <input
+                  type="search"
+                  aria-label="Search shooting schedule"
+                  placeholder="Search scheduled shots, people, locations…"
+                  value={scheduleSearch}
+                  onChange={(event) => setScheduleSearch(event.target.value)}
+                />
+                {scheduleSearch && (
+                  <button
+                    aria-label="Clear schedule search"
+                    onClick={() => setScheduleSearch("")}
+                  >
+                    <X size={13} />
+                  </button>
+                )}
+              </div>
+              {scheduleShotIds && !scheduleHasMatches && (
+                <p className="schedule-search-empty" role="status">
+                  No scheduled shots match this search in the displayed dates.
+                </p>
               )}
-            </div>
-            {scheduleShotIds && !scheduleHasMatches && (
-              <p className="schedule-search-empty" role="status">
-                No scheduled shots match this search in the displayed dates.
-              </p>
-            )}
-            <div className="schedule-toolbar">
-              <div className="date-navigation">
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  aria-label="Previous dates"
-                  disabled={currentDate <= project.startDate}
-                  onClick={() => nav(-displayedDays)}
-                >
-                  <ChevronLeft size={16} />
-                </Button>
+              <div className="schedule-toolbar">
+                <div className="date-navigation">
+                  <Button
+                    size="icon"
+                    variant="ghost"
+                    aria-label="Previous dates"
+                    disabled={currentDate <= project.startDate}
+                    onClick={() => nav(-displayedDays)}
+                  >
+                    <ChevronLeft size={16} />
+                  </Button>
+                  <span>
+                    {narrow
+                      ? dateLabel(currentDate)
+                      : `${dateLabel(dates[0])} – ${dateLabel(dates[dates.length - 1])}`}
+                    <span className="date-year">
+                      {" "}
+                      {currentDate.slice(0, 4)}
+                    </span>
+                  </span>
+                  <Button
+                    size="icon"
+                    variant="ghost"
+                    aria-label="Next dates"
+                    disabled={dates[dates.length - 1] >= project.endDate}
+                    onClick={() => nav(displayedDays)}
+                  >
+                    <ChevronRight size={16} />
+                  </Button>
+                  <label className="jump-date" title="Jump to shooting date">
+                    <CalendarDays size={15} />
+                    <input
+                      aria-label="Jump to shooting date"
+                      type="date"
+                      value={currentDate}
+                      min={project.startDate}
+                      max={project.endDate}
+                      onChange={(e) => {
+                        if (
+                          e.target.value >= project.startDate &&
+                          e.target.value <= project.endDate
+                        )
+                          setWindowStart(e.target.value);
+                      }}
+                    />
+                  </label>
+                </div>
+                <span className="timezone-label">{project.timezone}</span>
+              </div>
+              <div
+                className={`selection-strip ${selectedShot ? "has-selection" : ""}`}
+              >
+                {selectedShot ? (
+                  <>
+                    <span
+                      className={`selection-swatch ${selectedShot.color}`}
+                    />
+                    <div>
+                      <strong>{selectedShot.code}</strong>
+                      <span>{selectedShot.title}</span>
+                    </div>
+                    <button
+                      className="clear-selection"
+                      aria-label="Clear selection"
+                      onClick={() => setSelected(null)}
+                    >
+                      <X size={14} />
+                    </button>
+                  </>
+                ) : (
+                  <span className="selection-empty">
+                    Select a shot to check session suitability
+                  </span>
+                )}
+                <div className="spacer" />
+                <Legend />
+              </div>
+              <Board
+                dates={dates}
+                visibleShotIds={scheduleShotIds}
+                density={
+                  viewDays === 5 ? "big" : viewDays === 7 ? "medium" : "small"
+                }
+                selectedId={selectedId}
+                dragging={dragging}
+                onSelect={selectShot}
+                onEdit={(shot) => setModal({ type: "shot", shot })}
+                onSchedule={schedule}
+                onPlace={place}
+              />
+              <footer className="schedule-footer">
                 <span>
-                  {narrow
-                    ? dateLabel(currentDate)
-                    : `${dateLabel(dates[0])} – ${dateLabel(dates[dates.length - 1])}`}
-                  <span className="date-year"> {currentDate.slice(0, 4)}</span>
+                  {project.assignments.length} of {project.shots.length} shots
+                  scheduled
                 </span>
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  aria-label="Next dates"
-                  disabled={dates[dates.length - 1] >= project.endDate}
-                  onClick={() => nav(displayedDays)}
-                >
-                  <ChevronRight size={16} />
-                </Button>
-                <label className="jump-date" title="Jump to shooting date">
-                  <CalendarDays size={15} />
-                  <input
-                    aria-label="Jump to shooting date"
-                    type="date"
-                    value={currentDate}
-                    min={project.startDate}
-                    max={project.endDate}
-                    onChange={(e) => {
-                      if (
-                        e.target.value >= project.startDate &&
-                        e.target.value <= project.endDate
-                      )
-                        setWindowStart(e.target.value);
+                <span className="footer-progress">
+                  <i
+                    style={{
+                      width: `${project.shots.length ? (project.assignments.length / project.shots.length) * 100 : 0}%`,
                     }}
                   />
-                </label>
-              </div>
-              <span className="timezone-label">{project.timezone}</span>
-            </div>
-            <div
-              className={`selection-strip ${selectedShot ? "has-selection" : ""}`}
-            >
-              {selectedShot ? (
-                <>
-                  <span className={`selection-swatch ${selectedShot.color}`} />
-                  <div>
-                    <strong>{selectedShot.code}</strong>
-                    <span>{selectedShot.title}</span>
-                  </div>
-                  <button
-                    className="clear-selection"
-                    aria-label="Clear selection"
-                    onClick={() => setSelected(null)}
-                  >
-                    <X size={14} />
-                  </button>
-                </>
-              ) : (
-                <span className="selection-empty">
-                  Select a shot to check session suitability
                 </span>
-              )}
-              <div className="spacer" />
-              <Legend />
-            </div>
-            <Board
-              dates={dates}
-              visibleShotIds={scheduleShotIds}
-              density={
-                viewDays === 5 ? "big" : viewDays === 7 ? "medium" : "small"
+                <button
+                  onClick={() => setModal({ type: "issues" })}
+                  className={`health-button ${hardIssues.length ? "text-danger" : ""}`}
+                >
+                  {hardIssues.length ? (
+                    <AlertTriangle size={14} />
+                  ) : (
+                    <CheckCheck size={14} />
+                  )}{" "}
+                  {hardIssues.length
+                    ? `${hardIssues.length} conflicts`
+                    : "No conflicts"}
+                  {tentativeCount > 0 ? ` · ${tentativeCount} tentative` : ""}
+                  <ArrowUpRight size={12} />
+                </button>
+              </footer>
+            </main>
+            <PeoplePanel
+              resizeHandle={
+                <PaneResizer side="right" onResize={setPeopleWidth} />
               }
-              selectedId={selectedId}
-              dragging={dragging}
-              onSelect={selectShot}
-              onEdit={(shot) => setModal({ type: "shot", shot })}
-              onSchedule={schedule}
-              onPlace={place}
+              onClose={() => setPeopleOpen(false)}
+              dates={dates}
+              selectedPerson={selectedPerson}
+              onSelectPerson={setSelectedPerson}
+              onEditPerson={(person) => setModal({ type: "person", person })}
+              onAvailability={(person) =>
+                setModal({ type: "availability", person })
+              }
+              notify={notify}
             />
-            <footer className="schedule-footer">
-              <span>
-                {project.assignments.length} of {project.shots.length} shots
-                scheduled
-              </span>
-              <span className="footer-progress">
-                <i
-                  style={{
-                    width: `${project.shots.length ? (project.assignments.length / project.shots.length) * 100 : 0}%`,
-                  }}
-                />
-              </span>
-              <button
-                onClick={() => setModal({ type: "issues" })}
-                className={`health-button ${hardIssues.length ? "text-danger" : ""}`}
-              >
-                {hardIssues.length ? (
-                  <AlertTriangle size={14} />
-                ) : (
-                  <CheckCheck size={14} />
-                )}{" "}
-                {hardIssues.length
-                  ? `${hardIssues.length} conflicts`
-                  : "No conflicts"}
-                {tentativeCount > 0 ? ` · ${tentativeCount} tentative` : ""}
-                <ArrowUpRight size={12} />
-              </button>
-            </footer>
-          </main>
-          <PeoplePanel
-            resizeHandle={
-              <PaneResizer side="right" onResize={setPeopleWidth} />
-            }
-            onClose={() => setPeopleOpen(false)}
-            dates={dates}
-            selectedPerson={selectedPerson}
-            onSelectPerson={setSelectedPerson}
-            onEditPerson={(person) => setModal({ type: "person", person })}
-            onAvailability={(person) =>
-              setModal({ type: "availability", person })
-            }
-            notify={notify}
-          />
+          </div>
         </div>
         <footer className="app-footer">
           <span>

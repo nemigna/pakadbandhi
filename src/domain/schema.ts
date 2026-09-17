@@ -30,6 +30,11 @@ export const personSchema = z.strictObject({
   role: label,
   defaultAvailability: availabilityStatus,
 });
+export const propSchema = z.strictObject({
+  id,
+  name: label,
+  notes: z.string().max(2000),
+});
 export const shotSchema = z.strictObject({
   id,
   code: z.string().trim().min(1).max(30),
@@ -38,6 +43,7 @@ export const shotSchema = z.strictObject({
   description: z.string().max(2000),
   locationLabel: optionalLabel,
   requiredPersonIds: z.array(id).max(200),
+  propIds: z.array(id).max(500).default([]),
   estimatedMinutes: z.number().int().min(1).max(1440),
   lighting: z.enum(["anytime", "daylight", "nighttime"]),
   color: z.enum(["yellow", "sage", "lavender"]),
@@ -82,6 +88,7 @@ export const projectSchema = z
     coreCrewPersonIds: z.array(id).max(200),
     people: z.array(personSchema).max(200),
     shots: z.array(shotSchema).max(500),
+    props: z.array(propSchema).max(500).default([]),
     availability: z.array(availabilitySchema).max(72000),
     assignments: z.array(assignmentSchema).max(500),
   })
@@ -124,6 +131,11 @@ export const projectSchema = z
       ["sessions"],
     );
     unique(p.coreCrewPersonIds, ["coreCrewPersonIds"]);
+    unique(
+      p.props.map((x) => x.id),
+      ["props"],
+    );
+    const props = new Set(p.props.map((x) => x.id));
     const people = new Set(p.people.map((x) => x.id));
     const shots = new Set(p.shots.map((x) => x.id));
     const personRef = (v: string, path: (string | number)[]) => {
@@ -133,6 +145,11 @@ export const projectSchema = z
       personRef(v, ["coreCrewPersonIds", i]),
     );
     p.shots.forEach((s, i) => {
+      unique(s.propIds, ["shots", i, "propIds"]);
+      s.propIds.forEach((v, j) => {
+        if (!props.has(v))
+          issue(["shots", i, "propIds", j], `Unknown prop: ${v}`);
+      });
       unique(s.requiredPersonIds, ["shots", i, "requiredPersonIds"]);
       s.requiredPersonIds.forEach((v, j) =>
         personRef(v, ["shots", i, "requiredPersonIds", j]),
@@ -181,12 +198,13 @@ export const projectSchema = z
   });
 export const fileSchema = z.strictObject({
   format: z.literal("pakadbandi-project"),
-  schemaVersion: z.literal(1),
+  schemaVersion: z.union([z.literal(1), z.literal(2)]),
   exportedAt: z.iso.datetime({ offset: true }),
   project: projectSchema,
 });
 export type Project = z.infer<typeof projectSchema>;
 export type Person = z.infer<typeof personSchema>;
+export type Prop = z.infer<typeof propSchema>;
 export type Shot = z.infer<typeof shotSchema>;
 export type Assignment = z.infer<typeof assignmentSchema>;
 export type AvailabilityOverride = z.infer<typeof availabilitySchema>;
@@ -206,7 +224,7 @@ export function serializeProject(
   exportedAt = new Date().toISOString(),
 ) {
   const text = JSON.stringify(
-    { format: "pakadbandi-project", schemaVersion: 1, exportedAt, project },
+    { format: "pakadbandi-project", schemaVersion: 2, exportedAt, project },
     null,
     2,
   );

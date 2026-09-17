@@ -2,6 +2,7 @@ import {
   validateProject,
   type Project,
   type Shot,
+  type Prop,
   type Person,
   type AvailabilityOverride,
   type SessionId,
@@ -19,6 +20,8 @@ export type Settings = Pick<
   | "coreCrewPersonIds"
 >;
 export type ProjectCommand =
+  | { type: "prop/create" | "prop/update"; prop: Prop }
+  | { type: "prop/delete"; propId: string }
   | { type: "shot/create" | "shot/update"; shot: Shot }
   | { type: "shot/delete"; shotId: string }
   | { type: "person/create" | "person/update"; person: Person }
@@ -51,6 +54,27 @@ export function personReferences(p: Project, id: string) {
 export function applyCommand(p: Project, c: ProjectCommand): Project {
   let next = p;
   switch (c.type) {
+    case "prop/create":
+      next = { ...p, props: [...p.props, c.prop] };
+      break;
+    case "prop/update":
+      if (!p.props.some((prop) => prop.id === c.prop.id))
+        throw new Error("Prop no longer exists.");
+      next = {
+        ...p,
+        props: p.props.map((prop) => (prop.id === c.prop.id ? c.prop : prop)),
+      };
+      break;
+    case "prop/delete":
+      next = {
+        ...p,
+        props: p.props.filter((prop) => prop.id !== c.propId),
+        shots: p.shots.map((shot) => ({
+          ...shot,
+          propIds: shot.propIds.filter((id) => id !== c.propId),
+        })),
+      };
+      break;
     case "shot/create":
       next = { ...p, shots: [...p.shots, c.shot] };
       break;

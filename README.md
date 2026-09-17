@@ -81,3 +81,11 @@ Cloud requests are capped at 4,000,000 bytes to leave headroom below Vercel’s 
 Configuration follows [Vercel’s Vite guide](https://vercel.com/docs/frameworks/frontend/vite). Human review of assistive technology, touch ergonomics, and real device behavior remains valuable; automated checks do not certify WCAG conformance. Labor rules, astronomical daylight, optimization, call sheets, and multi-user persistence are outside this version.
 
 API references used during implementation: [dnd-kit React quickstart](https://dndkit.com/react/quickstart/) and [shadcn Vite setup](https://ui.shadcn.com/docs/installation/vite).
+
+## Props and JSON compatibility
+
+The Props tab opens a separate workspace. Create named props with notes, select a prop to see its scenes and shots, and use the searchable shot checklist to tag or untag it. The shot editor also has a Props checklist. Deleting a prop removes its shot tags while preserving shots, availability, and scheduling.
+
+Version 1 JSON imports and existing cloud records remain readable: missing `project.props` and shot `propIds` become empty lists in memory. Exports now use schema version 2. The Redis key stays unchanged; loading does not rewrite the stored record. Explicit cloud saves include the new fields. Older clients missing these fields receive HTTP 409 without a database write, even if their cloud version token is current. Existing optimistic concurrency checks still apply.
+
+Before production rollout, export the current cloud project as a backup and deploy frontend and API together. Verify an existing project opens with empty props and its shots/availability intact. Do not roll back to the old API after saving props without a compatible reader/writer; the old strict schema cannot read the added fields. No live cloud data is migrated as part of the code change.

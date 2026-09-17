@@ -50,6 +50,42 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 describe("cloud project API", () => {
+  it("loads legacy cloud data without writing and blocks legacy saves", async () => {
+    const project = createDemoProject();
+    const { props: _props, ...rest } = project;
+    expect(_props).toEqual([]);
+    const legacy = {
+      ...rest,
+      shots: rest.shots.map(({ propIds: _ids, ...shot }) => shot),
+    };
+    const version = "00000000-0000-4000-8000-000000000001";
+    stored = JSON.stringify({
+      project: legacy,
+      version,
+      savedAt: "2026-09-17T00:00:00.000Z",
+    });
+    const original = stored;
+    const loaded = await (await call()).json();
+    expect(loaded.project).toEqual(project);
+    expect(stored).toBe(original);
+    expect(writes).toBe(0);
+    expect((await call("PUT", { project: legacy, version })).status).toBe(409);
+    expect(stored).toBe(original);
+    const withProps = {
+      ...project,
+      props: [{ id: "bag", name: "Red bag", notes: "" }],
+    };
+    expect((await call("PUT", { project: withProps, version })).status).toBe(
+      200,
+    );
+    const saved = stored;
+    const newVersion = JSON.parse(stored!).version;
+    expect(
+      (await call("PUT", { project: legacy, version: newVersion })).status,
+    ).toBe(409);
+    expect(stored).toBe(saved);
+    expect(writes).toBe(1);
+  });
   it("loads an empty database without seeding it", async () => {
     expect(await (await call()).json()).toEqual({
       project: null,
